@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography";
-import { Button, Box, Popover } from "@mui/material";
+import { IconButton, Box, Popover } from "@mui/material";
 import { useState } from "react";
 
 const contactUsPopoverContainer = {
@@ -9,9 +9,7 @@ const contactUsPopoverContainer = {
 };
 
 export default function ContactUsPopover() {
-    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(
-        null
-    );
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -26,9 +24,19 @@ export default function ContactUsPopover() {
 
     return (
         <Box data-testid="contact-us-popover-container" sx={ contactUsPopoverContainer }>
-            <Button aria-describedby={ id } variant="contained" onClick={ handleClick }>
-                Contact us
-            </Button>
+            <IconButton
+                aria-describedby={ id }
+                onClick={ handleClick }
+                color="inherit"
+                size="large"
+                sx={ { marginTop: "60px" } }
+            >
+                <img
+                    src="1918043-200.png"
+                    alt="Custom Icon"
+                    style={ { width: "30px", height: "30px", transform: "rotate(90deg)" } }
+                />
+            </IconButton>
             <Popover
                 id={ id }
                 open={ open }
