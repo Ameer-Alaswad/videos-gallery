@@ -6,14 +6,17 @@ const toInstagramStyles = { fontSize: 60, marginLeft: 1 };
 const ToInstagramLink = () => {
     return (
         <>
-            <InstagramIcon data-testid="to-instagram-icon" sx={ toInstagramStyles } />
+
             <Link
+                aria-label="Visit our Instagram page"
                 data-testid="to-instagram-link"
                 href="https://www.google.com"
                 color="inherit"
                 underline="none"
                 target="_blank"
-            ></Link>
+            >
+                <InstagramIcon data-testid="to-instagram-icon" sx={ toInstagramStyles } />
+            </Link>
         </>
     );
 };

@@ -2,13 +2,19 @@ import Typography from "@mui/material/Typography";
 import { IconButton, Box, Popover } from "@mui/material";
 import { useState } from "react";
 
-const contactUsPopoverContainer = {
+const contactUsPopoverContainerStyle = {
     display: "flex",
     width: "100%",
     justifyContent: "center",
 };
+const contactUsPopoverImageStyles = {
+    width: "30px",
+    height: "30px",
+    transform: "rotate(90deg)",
+};
 
 export default function ContactUsPopover() {
+
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -23,8 +29,12 @@ export default function ContactUsPopover() {
     const id = open ? "simple-popover" : undefined;
 
     return (
-        <Box data-testid="contact-us-popover-container" sx={ contactUsPopoverContainer }>
+        <Box
+            data-testid="contact-us-popover-container"
+            sx={ contactUsPopoverContainerStyle }
+        >
             <IconButton
+                data-testid="open-close"
                 aria-describedby={ id }
                 onClick={ handleClick }
                 color="inherit"
@@ -34,7 +44,7 @@ export default function ContactUsPopover() {
                 <img
                     src="1918043-200.png"
                     alt="Custom Icon"
-                    style={ { width: "30px", height: "30px", transform: "rotate(90deg)" } }
+                    style={ contactUsPopoverImageStyles }
                 />
             </IconButton>
             <Popover
@@ -50,9 +60,11 @@ export default function ContactUsPopover() {
                     vertical: "top",
                     horizontal: "center",
                 } }
+                sx={ { zIndex: 'unset' } }
             >
-                <Typography sx={ { p: 2 } }>The content of the Popover.</Typography>
+                <Typography data-testid="paragraph" sx={ { p: 2 } }>The content of the Popover.</Typography>
             </Popover>
+
         </Box>
     );
 }
