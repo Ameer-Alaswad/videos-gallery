@@ -1,32 +1,33 @@
-import { AppBar, Toolbar, Typography, Link } from "@mui/material";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { AppBar, Box } from "@mui/material";
 import ContactUsPopover from "./contact-us-popover";
+import ToInstagramLink from "./to-instagram-link";
+import Logo from "./logo";
 
-const headerContainerStyles = { backgroundColor: "white", color: "black" };
+const headerContainerStyles = {
+    backgroundColor: "white",
+    color: "black",
+    height: "90px",
+};
+const headerContentContainerStyles = {
+    display: "flex",
+    justifyContent: "center",
+    width: "300px",
+    alignItems: "center",
+    margin: "0 auto",
+    height: "100%",
+};
 
 const Header = () => {
     return (
         <AppBar data-testid="app-bar" sx={ headerContainerStyles } position="static">
-            <Toolbar data-testid="toolbar">
-                <Typography
-                    data-testid="news1"
-                    variant="h6"
-                    component="div"
-                    sx={ { flexGrow: 1 } }
-                >
-                    News
-                </Typography>
+            <Box
+                data-testid="header-content-container"
+                sx={ headerContentContainerStyles }
+            >
+                <Logo />
                 <ContactUsPopover />
-                <Link
-                    data-testid="instagram-link"
-                    href="https://www.google.com"
-                    color="inherit"
-                    underline="none"
-                    target="_blank"
-                >
-                    <InstagramIcon />
-                </Link>
-            </Toolbar>
+                <ToInstagramLink />
+            </Box>
         </AppBar>
     );
 };

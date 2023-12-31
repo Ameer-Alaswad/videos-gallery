@@ -1,24 +1,32 @@
-import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Header from "../index";
 
-test('renders Header component with clickable Instagram link', () => {
+import '@testing-library/jest-dom';
+import { render, screen } from "@testing-library/react";
+import Header from "..";
+
+
+describe("Header component", () => {
     render(<Header />);
 
-    const appBarElement = screen.getByTestId('app-bar');
-    expect(appBarElement).toBeInTheDocument();
+    it("should render the AppBar component", () => {
+        const appBar = screen.getByTestId("app-bar");
+        expect(appBar).toBeInTheDocument();
 
-    const toolbarElement = screen.getByTestId('toolbar');
-    expect(toolbarElement).toBeInTheDocument();
+        const headerContentContainer = screen.getByTestId("header-content-container");
+        expect(headerContentContainer).toBeInTheDocument();
 
-    const news1Element = screen.getByTestId('news1');
-    expect(news1Element).toBeInTheDocument();
-    expect(news1Element).toHaveTextContent('News');
+        const logo = screen.getByTestId("logo-image");
+        expect(logo).toBeInTheDocument();
 
-    const instagramLinkElement = screen.getByTestId('instagram-link');
-    expect(instagramLinkElement).toBeInTheDocument();
+        const contactUsPopover = screen.getByTestId("contact-us-popover-container");
+        expect(contactUsPopover).toBeInTheDocument();
 
-    fireEvent.click(instagramLinkElement);
+        const toInstagramLink = screen.getByTestId("to-instagram-link");
+        expect(toInstagramLink).toBeInTheDocument();
+    });
 
-    expect(instagramLinkElement).toHaveAttribute('href', 'https://www.google.com');
 });
+
+
+
+
+
