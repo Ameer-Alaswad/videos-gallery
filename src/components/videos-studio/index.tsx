@@ -26,7 +26,15 @@ export default function StandardImageList() {
                 alignItems: "center",
             }}
         >
-            <ImageList cols={3} rowHeight={231}>
+            <ImageList
+                cols={3}
+                rowHeight={231}
+                sx={{
+                    width: "850px",
+                    paddingLeft: "150px",
+                    paddingRight: "150px",
+                }}
+            >
                 {studioVideosData.map((item) => (
                     <ImageListItem
                         onClick={(event) => handleOpen(event)}
@@ -34,6 +42,7 @@ export default function StandardImageList() {
                             ":hover": {
                                 transform: "scale(1.5)",
                                 zIndex: "10000",
+                                transition: "transform 0.7s",
                             },
                             display: "flex",
                             alignItems: "center",
@@ -45,7 +54,6 @@ export default function StandardImageList() {
                             style={{
                                 width: "250px",
                                 height: "200px",
-                                transition: "transform 0.3s",
                                 objectFit: "cover",
                             }}
                             loop
