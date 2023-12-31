@@ -17,7 +17,9 @@ describe("ToInstagramLink Component Rendering", () => {
 
         expect(instagramLink).toHaveAttribute("href", "https://www.google.com");
         expect(instagramLink).toHaveStyle(toInstagramStyles);
-        expect(instagramLink).toHaveAttribute("aria-label", "Visit our Instagram page");
-
+        expect(instagramLink).toHaveAttribute(
+            "aria-label",
+            "Visit our Instagram page"
+        );
     });
 });

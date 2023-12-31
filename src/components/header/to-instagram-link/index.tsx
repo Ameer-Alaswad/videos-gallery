@@ -6,7 +6,6 @@ const toInstagramStyles = { fontSize: 60, marginLeft: 1 };
 const ToInstagramLink = () => {
     return (
         <>
-
             <Link
                 aria-label="Visit our Instagram page"
                 data-testid="to-instagram-link"

@@ -1,8 +1,10 @@
-
-const logoImageStyles = { width: "60px", height: "60px", marginRight: "1px", cursor: "pointer" }
+const logoImageStyles = {
+    width: "60px",
+    height: "60px",
+    marginRight: "1px",
+};
 
 const Logo = () => {
-
     return (
         <img
             alt="site-logo"

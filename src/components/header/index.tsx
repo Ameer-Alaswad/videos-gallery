@@ -20,7 +20,10 @@ const headerContentContainerStyles = {
 const Header = () => {
     return (
         <AppBar data-testid="app-bar" sx={ headerContainerStyles } position="static">
-            <Box data-tesid="header-content-container" sx={ headerContentContainerStyles }>
+            <Box
+                data-testid="header-content-container"
+                sx={ headerContentContainerStyles }
+            >
                 <Logo />
                 <ContactUsPopover />
                 <ToInstagramLink />

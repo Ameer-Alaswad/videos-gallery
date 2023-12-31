@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event';
 
 test('ContactUsPopover renders correctly', async () => {
   render(<ContactUsPopover />);
+  const popoverContent = screen.queryByTestId('paragraph');
+  expect(popoverContent).not.toBeInTheDocument();
 
   const container = screen.getByTestId('contact-us-popover-container');
   expect(container).toBeInTheDocument();
