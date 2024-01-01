@@ -9,9 +9,9 @@ const style = {
     transform: "translate(-50%, -50%)",
     width: 400,
     border: "none",
-    // bgcolor: "background.paper",
-    // boxShadow: 24,
-    // p: 4,
+    "&:focus": {
+        outline: "none",
+    },
 };
 interface BasicModalProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -42,7 +42,8 @@ const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
                                         objectFit: "fill",
                                     }}
                                     loop
-                                    muted={open ? false : true}
+                                    // muted={open ? false : true}
+                                    muted
                                     autoPlay
                                 >
                                     <source

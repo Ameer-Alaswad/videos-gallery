@@ -19,7 +19,7 @@ export default function StandardImageList() {
         <Box
             sx={{
                 width: "100%",
-                height: "100%",
+                height: "1700px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
