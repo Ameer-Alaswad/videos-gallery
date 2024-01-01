@@ -7,12 +7,12 @@ import { studioVideosData } from "../../assets";
 
 export default function StandardImageList() {
     const [open, setOpen] = useState<boolean>(false);
-    const [videoLink, setVideoLink] = useState<string>("");
+    const [videoId, setVideoId] = useState<string>("");
 
     const handleOpen = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         const targetElement = event.target as HTMLElement;
         const firstChild = targetElement.firstChild as HTMLElement;
-        setVideoLink(firstChild.id);
+        setVideoId(firstChild.id);
         setOpen(true);
     };
     return (
@@ -48,7 +48,7 @@ export default function StandardImageList() {
                             alignItems: "center",
                             justifyContent: "center",
                         }}
-                        key={item.video}
+                        key={item.id}
                     >
                         <video
                             style={{
@@ -61,19 +61,15 @@ export default function StandardImageList() {
                             autoPlay
                         >
                             <source
-                                id={item.title}
-                                src={`${item.video}`}
+                                id={item.id}
+                                src={`${item.videoPath}`}
                                 type="video/mp4"
                             />
                             Your browser does not support the video tag.
                         </video>
                     </ImageListItem>
                 ))}
-                <BasicModal
-                    videoLink={videoLink}
-                    open={open}
-                    setOpen={setOpen}
-                />
+                <BasicModal videoId={videoId} open={open} setOpen={setOpen} />
             </ImageList>
         </Box>
     );

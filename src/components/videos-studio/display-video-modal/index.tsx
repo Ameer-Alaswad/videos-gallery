@@ -16,14 +16,10 @@ const style = {
 interface BasicModalProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     open: boolean;
-    videoLink: string;
+    videoId: string;
 }
 
-const BasicModal: React.FC<BasicModalProps> = ({
-    setOpen,
-    open,
-    videoLink,
-}) => {
+const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
     const handleClose = () => setOpen(false);
 
     return (
@@ -34,9 +30,9 @@ const BasicModal: React.FC<BasicModalProps> = ({
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                {videoLink &&
+                {videoId &&
                     studioVideosData.map((item) => {
-                        if (item.title === videoLink) {
+                        if (item.id === videoId) {
                             return (
                                 <video
                                     style={{
@@ -50,8 +46,8 @@ const BasicModal: React.FC<BasicModalProps> = ({
                                     autoPlay
                                 >
                                     <source
-                                        id={item.title}
-                                        src={`${item.video}`}
+                                        id={item.id}
+                                        src={`${item.videoPath}`}
                                         type="video/mp4"
                                     />
                                 </video>
