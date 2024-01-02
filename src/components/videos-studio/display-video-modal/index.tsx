@@ -1,16 +1,9 @@
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+import { Box, Modal } from "@mui/material";
 import { studioVideosData } from "../../../assets";
-import { Link } from "@mui/material";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import { mainBoxStyle } from "./style.tsx";
+import { mainBoxStyle } from "../style.tsx";
+import InstagramLink from "./instagram-icon/index.tsx";
 import { useState } from "react";
-
-const toInstagramStyles = {
-    fontSize: 60,
-    marginLeft: 1,
-    margin: "0 auto",
-};
+import Video from "./video/index.tsx";
 
 interface BasicModalProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,16 +13,9 @@ interface BasicModalProps {
 
 const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
     const handleClose = () => setOpen(false);
+
     const [instagramIconVisible, setInstagramIconVisible] =
         useState<boolean>(false);
-
-    const handleMouseEnter = () => {
-        setInstagramIconVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-        setInstagramIconVisible(false);
-    };
 
     return (
         <Modal
@@ -40,58 +26,26 @@ const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
         >
             <Box sx={mainBoxStyle}>
                 {videoId &&
-                    studioVideosData.map((item) => {
-                        if (item.id === videoId) {
+                    studioVideosData.map(({ id, videoPath, instagramLink }) => {
+                        if (id === videoId) {
                             return (
                                 <div
                                     style={{
                                         position: "relative",
                                     }}
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseLeave={handleMouseLeave}
+                                    onMouseEnter={() =>
+                                        setInstagramIconVisible(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setInstagramIconVisible(false)
+                                    }
                                 >
-                                    <video
-                                        style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            transition: "transform 1s",
-                                            objectFit: "fill",
-                                        }}
-                                        loop
-                                        // muted={open ? false : true}
-                                        muted
-                                        autoPlay
-                                    >
-                                        <source
-                                            id={item.id}
-                                            src={`${item.videoPath}`}
-                                            type="video/mp4"
-                                        />
-                                    </video>
+                                    <Video id={id} videoPath={videoPath} />
 
                                     {instagramIconVisible && (
-                                        <Link
-                                            aria-label="Visit our Instagram page"
-                                            data-testid="to-instagram-link"
-                                            href="https://www.google.com"
-                                            color="inherit"
-                                            underline="none"
-                                            target="_blank"
-                                            sx={{
-                                                width: "100%",
-                                                position: "absolute",
-                                                bottom: "0%",
-                                                right: "0%",
-                                                background:
-                                                    "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
-                                                display: "flex",
-                                            }}
-                                        >
-                                            <InstagramIcon
-                                                data-testid="to-instagram-icon"
-                                                sx={toInstagramStyles}
-                                            />
-                                        </Link>
+                                        <InstagramLink
+                                            instagramLink={instagramLink}
+                                        />
                                     )}
                                 </div>
                             );

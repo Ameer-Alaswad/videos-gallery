@@ -15,6 +15,7 @@ export default function StandardImageList() {
         setVideoId(firstChild.id);
         setOpen(true);
     };
+    
     return (
         <Box
             sx={{
