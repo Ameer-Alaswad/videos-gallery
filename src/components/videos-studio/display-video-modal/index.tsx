@@ -1,6 +1,13 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { studioVideosData } from "../../../assets";
+import { Link } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
+const toInstagramStyles = {
+    fontSize: 60,
+    marginLeft: 1,
+};
 
 const style = {
     position: "absolute",
@@ -29,29 +36,57 @@ const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
+            <Box sx={style} id="1">
                 {videoId &&
                     studioVideosData.map((item) => {
                         if (item.id === videoId) {
                             return (
-                                <video
+                                <div
+                                    id="2"
                                     style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        transition: "transform 1s",
-                                        objectFit: "fill",
+                                        position: "relative",
                                     }}
-                                    loop
-                                    // muted={open ? false : true}
-                                    muted
-                                    autoPlay
                                 >
-                                    <source
-                                        id={item.id}
-                                        src={`${item.videoPath}`}
-                                        type="video/mp4"
-                                    />
-                                </video>
+                                    <video
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            transition: "transform 1s",
+                                            objectFit: "fill",
+                                        }}
+                                        loop
+                                        muted={open ? false : true}
+                                        autoPlay
+                                    >
+                                        <source
+                                            id={item.id}
+                                            src={`${item.videoPath}`}
+                                            type="video/mp4"
+                                        />
+                                    </video>
+                                    <Box
+                                        style={{
+                                            position: "absolute",
+                                            bottom: "10%",
+                                            right: "40%",
+                                        }}
+                                        id="3"
+                                    >
+                                        <Link
+                                            aria-label="Visit our Instagram page"
+                                            data-testid="to-instagram-link"
+                                            href="https://www.google.com"
+                                            color="inherit"
+                                            underline="none"
+                                            target="_blank"
+                                        >
+                                            <InstagramIcon
+                                                data-testid="to-instagram-icon"
+                                                sx={toInstagramStyles}
+                                            />
+                                        </Link>
+                                    </Box>
+                                </div>
                             );
                         }
                     })}

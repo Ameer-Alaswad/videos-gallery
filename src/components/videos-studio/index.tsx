@@ -30,7 +30,7 @@ export default function StandardImageList() {
                 cols={3}
                 rowHeight={231}
                 sx={{
-                    width: "850px",
+                    width: "750px",
                     paddingLeft: "150px",
                     paddingRight: "150px",
                 }}
@@ -52,7 +52,7 @@ export default function StandardImageList() {
                     >
                         <video
                             style={{
-                                width: "250px",
+                                width: "200px",
                                 height: "200px",
                                 objectFit: "cover",
                             }}
