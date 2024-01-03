@@ -18,7 +18,7 @@ export default function StandardImageList() {
 
     return (
         <Box sx={mainImgListStyle}>
-            <ImageList cols={3} rowHeight={231} sx={imgListStyle}>
+            <ImageList sx={imgListStyle}>
                 {studioVideosData.map(({ id, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpen(event)}

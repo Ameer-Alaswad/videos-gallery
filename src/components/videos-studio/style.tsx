@@ -8,6 +8,10 @@ export const mainBoxStyle = {
     "&:focus": {
         outline: "none",
     },
+    "@media screen and (max-width: 480px)": {
+        width: "300px",
+        height: "200px",
+    },
 };
 
 export const InstagramStyles = {
@@ -43,9 +47,30 @@ export const mainImgListStyle = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    "@media screen and (min-width: 481px) and (max-width: 767px)": {
+        height: "2700px",
+    },
+    "@media screen and (max-width: 480px)": {
+        height: "5000px",
+    },
 };
 export const imgListStyle = {
     width: "750px",
     paddingLeft: "150px",
     paddingRight: "150px",
+    display: "flex",
+    justifyContent: "space-evenly",
+    flexWrap: "wrap",
+    "@media screen and (min-width: 481px) and (max-width: 767px)": {
+        width: "500px",
+        height: "2500px",
+        paddingLeft: "25px",
+        paddingRight: "25px",
+    },
+    "@media screen and (max-width: 480px)": {
+        width: "300px",
+        height: "5000px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+    },
 };
