@@ -40,7 +40,11 @@ const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
                                         setInstagramIconVisible(false)
                                     }
                                 >
-                                    <Video id={id} videoPath={videoPath} />
+                                    <Video
+                                        id={id}
+                                        videoPath={videoPath}
+                                        open={open}
+                                    />
 
                                     {instagramIconVisible && (
                                         <InstagramLink

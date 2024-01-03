@@ -1,9 +1,9 @@
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import { Box } from "@mui/material";
+import { Box, ImageListItem, ImageList } from "@mui/material";
 import { useState } from "react";
 import BasicModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
+import Video from "./display-video-modal/video";
+import { imgListItemStyle, mainImgListStyle, imgListStyle } from "./style";
 
 export default function StandardImageList() {
     const [open, setOpen] = useState<boolean>(false);
@@ -15,59 +15,24 @@ export default function StandardImageList() {
         setVideoId(firstChild.id);
         setOpen(true);
     };
-    
+
     return (
-        <Box
-            sx={{
-                width: "100%",
-                height: "1700px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <ImageList
-                cols={3}
-                rowHeight={231}
-                sx={{
-                    width: "750px",
-                    paddingLeft: "150px",
-                    paddingRight: "150px",
-                }}
-            >
-                {studioVideosData.map((item) => (
+        <Box sx={mainImgListStyle}>
+            <ImageList cols={3} rowHeight={231} sx={imgListStyle}>
+                {studioVideosData.map(({ id, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpen(event)}
-                        sx={{
-                            ":hover": {
-                                transform: "scale(1.5)",
-                                zIndex: "10000",
-                                transition: "transform 0.7s",
-                            },
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}
-                        key={item.id}
+                        sx={imgListItemStyle}
+                        key={id}
                     >
-                        <video
-                            style={{
-                                width: "200px",
-                                height: "200px",
-                                objectFit: "cover",
-                            }}
-                            loop
-                            muted
-                            autoPlay
-                        >
-                            <source
-                                id={item.id}
-                                src={`${item.videoPath}`}
-                                type="video/mp4"
-                            />
-                            Your browser does not support the video tag.
-                        </video>
+                        <Video
+                            width={"200px"}
+                            height={"200px"}
+                            objectFit={"cover"}
+                            id={id}
+                            videoPath={videoPath}
+                            open={open}
+                        />
                     </ImageListItem>
                 ))}
                 <BasicModal videoId={videoId} open={open} setOpen={setOpen} />
