@@ -33,7 +33,7 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
                     studioVideosData.map(({ id, videoPath, instagramLink }) => {
                         if (id === videoId) {
                             return (
-                                <div
+                                <Box
                                     style={{
                                         position: "relative",
                                     }}
@@ -55,7 +55,7 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
                                             instagramLink={instagramLink}
                                         />
                                     )}
-                                </div>
+                                </Box>
                             );
                         }
                     })}
