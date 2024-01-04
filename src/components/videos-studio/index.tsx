@@ -9,7 +9,9 @@ export default function StandardImageList() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
     const [videoId, setVideoId] = useState<string>("");
 
-    const handleOpen = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    const handleOpenVideo = (
+        event: React.MouseEvent<HTMLLIElement, MouseEvent>
+    ) => {
         const targetElement = event.target as HTMLElement;
         const selectedVideoElement = targetElement.firstChild as HTMLElement;
         setVideoId(selectedVideoElement.id);
@@ -21,7 +23,7 @@ export default function StandardImageList() {
             <ImageList sx={imgListStyles}>
                 {studioVideosData.map(({ id, videoPath }) => (
                     <ImageListItem
-                        onClick={(event) => handleOpen(event)}
+                        onClick={(event) => handleOpenVideo(event)}
                         sx={imgListItemStyles}
                         key={id}
                     >
