@@ -35,14 +35,12 @@ export const imgListItemStyles = {
         zIndex: "10000",
         transition: "transform 0.7s",
     },
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    margin: "10px",
 };
 
 export const imgListMainBoxStyles = {
     width: "100%",
-    height: "1700px",
+    height: "1800px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -56,8 +54,7 @@ export const imgListMainBoxStyles = {
 };
 export const imgListStyles = {
     width: "750px",
-    paddingLeft: "150px",
-    paddingRight: "150px",
+    padding: "60px",
     display: "flex",
     justifyContent: "space-evenly",
     flexWrap: "wrap",
