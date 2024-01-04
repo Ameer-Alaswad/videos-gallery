@@ -1,6 +1,6 @@
 import { Box, Modal } from "@mui/material";
 import { studioVideosData } from "../../../assets";
-import { mainBoxStyle } from "../style.tsx";
+import { mainBoxStyles } from "../styles.tsx";
 import InstagramLink from "./instagram-icon/index.tsx";
 import { useState } from "react";
 import Video from "./video/index.tsx";
@@ -28,7 +28,7 @@ const BasicModal: React.FC<BasicModalProps> = ({
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={mainBoxStyle}>
+            <Box sx={mainBoxStyles}>
                 {videoId &&
                     studioVideosData.map(({ id, videoPath, instagramLink }) => {
                         if (id === videoId) {

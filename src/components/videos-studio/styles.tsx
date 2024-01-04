@@ -1,4 +1,4 @@
-export const mainBoxStyle = {
+export const mainBoxStyles = {
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -20,7 +20,7 @@ export const InstagramStyles = {
     margin: "0 auto",
 };
 
-export const linkToInstagramStyle = {
+export const linkToInstagramStyles = {
     width: "100%",
     position: "absolute",
     bottom: "0%",
@@ -29,7 +29,7 @@ export const linkToInstagramStyle = {
     display: "flex",
 };
 
-export const imgListItemStyle = {
+export const imgListItemStyles = {
     ":hover": {
         transform: "scale(1.5)",
         zIndex: "10000",
@@ -40,7 +40,7 @@ export const imgListItemStyle = {
     justifyContent: "center",
 };
 
-export const mainImgListStyle = {
+export const mainImgListStyles = {
     width: "100%",
     height: "1700px",
     display: "flex",
@@ -54,7 +54,7 @@ export const mainImgListStyle = {
         height: "5000px",
     },
 };
-export const imgListStyle = {
+export const imgListStyles = {
     width: "750px",
     paddingLeft: "150px",
     paddingRight: "150px",

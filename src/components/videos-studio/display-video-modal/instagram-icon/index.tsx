@@ -1,4 +1,4 @@
-import { InstagramStyles, linkToInstagramStyle } from "../../style";
+import { InstagramStyles, linkToInstagramStyles } from "../../styles";
 import { Link } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -15,7 +15,7 @@ const InstagramLink = ({ instagramLink }: InstagramLinkProps) => {
             color="inherit"
             underline="none"
             target="_blank"
-            sx={linkToInstagramStyle}
+            sx={linkToInstagramStyles}
         >
             <InstagramIcon
                 data-testid="to-instagram-icon"
