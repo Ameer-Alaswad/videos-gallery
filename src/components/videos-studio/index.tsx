@@ -1,6 +1,6 @@
 import { Box, ImageListItem, ImageList } from "@mui/material";
 import { useState } from "react";
-import BasicModal from "./display-video-modal";
+import VideoPopupModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
 import Video from "./display-video-modal/video";
 import { imgListItemStyles, mainImgListStyles, imgListStyles } from "./styles";
@@ -37,7 +37,7 @@ export default function StandardImageList() {
                         />
                     </ImageListItem>
                 ))}
-                <BasicModal
+                <VideoPopupModal
                     videoId={videoId}
                     openVideo={openVideo}
                     setOpenVideo={setOpenVideo}

@@ -11,12 +11,12 @@ interface BasicModalProps {
     videoId: string;
 }
 
-const BasicModal: React.FC<BasicModalProps> = ({
+const VideoPopupModal: React.FC<BasicModalProps> = ({
     setOpenVideo,
     openVideo,
     videoId,
 }) => {
-    const handleClose = () => setOpenVideo(false);
+    const handleCloseVideo = () => setOpenVideo(false);
 
     const [instagramIconVisible, setInstagramIconVisible] =
         useState<boolean>(false);
@@ -24,7 +24,7 @@ const BasicModal: React.FC<BasicModalProps> = ({
     return (
         <Modal
             open={openVideo}
-            onClose={handleClose}
+            onClose={handleCloseVideo}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
@@ -63,4 +63,4 @@ const BasicModal: React.FC<BasicModalProps> = ({
         </Modal>
     );
 };
-export default BasicModal;
+export default VideoPopupModal;
