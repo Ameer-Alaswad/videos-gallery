@@ -6,20 +6,24 @@ import { useState } from "react";
 import Video from "./video/index.tsx";
 
 interface BasicModalProps {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    open: boolean;
+    setOpenVideo: React.Dispatch<React.SetStateAction<boolean>>;
+    openVideo: boolean;
     videoId: string;
 }
 
-const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
-    const handleClose = () => setOpen(false);
+const BasicModal: React.FC<BasicModalProps> = ({
+    setOpenVideo,
+    openVideo,
+    videoId,
+}) => {
+    const handleClose = () => setOpenVideo(false);
 
     const [instagramIconVisible, setInstagramIconVisible] =
         useState<boolean>(false);
 
     return (
         <Modal
-            open={open}
+            open={openVideo}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
@@ -43,7 +47,7 @@ const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoId }) => {
                                     <Video
                                         id={id}
                                         videoPath={videoPath}
-                                        open={open}
+                                        openVideo={openVideo}
                                     />
 
                                     {instagramIconVisible && (

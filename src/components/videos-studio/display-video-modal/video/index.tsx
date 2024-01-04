@@ -6,7 +6,7 @@ interface videoProps {
     objectFit?: CSSProperties["objectFit"];
     id: string;
     videoPath: string;
-    open: boolean;
+    openVideo: boolean;
 }
 
 const Video = ({
@@ -15,7 +15,7 @@ const Video = ({
     objectFit,
     id,
     videoPath,
-    open,
+    openVideo,
 }: videoProps) => {
     const videoStyle: CSSProperties = {
         width: width || "100%",
@@ -25,7 +25,12 @@ const Video = ({
     };
 
     return (
-        <video style={videoStyle} loop muted={open ? false : true} autoPlay>
+        <video
+            style={videoStyle}
+            loop
+            muted={openVideo ? false : true}
+            autoPlay
+        >
             <source id={id} src={`${videoPath}`} type="video/mp4" />
         </video>
     );

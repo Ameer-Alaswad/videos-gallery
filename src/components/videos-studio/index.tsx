@@ -6,14 +6,14 @@ import Video from "./display-video-modal/video";
 import { imgListItemStyle, mainImgListStyle, imgListStyle } from "./style";
 
 export default function StandardImageList() {
-    const [open, setOpen] = useState<boolean>(false);
+    const [openVideo, setOpenVideo] = useState<boolean>(false);
     const [videoId, setVideoId] = useState<string>("");
 
     const handleOpen = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         const targetElement = event.target as HTMLElement;
         const firstChild = targetElement.firstChild as HTMLElement;
         setVideoId(firstChild.id);
-        setOpen(true);
+        setOpenVideo(true);
     };
 
     return (
@@ -31,11 +31,15 @@ export default function StandardImageList() {
                             objectFit={"cover"}
                             id={id}
                             videoPath={videoPath}
-                            open={open}
+                            openVideo={openVideo}
                         />
                     </ImageListItem>
                 ))}
-                <BasicModal videoId={videoId} open={open} setOpen={setOpen} />
+                <BasicModal
+                    videoId={videoId}
+                    openVideo={openVideo}
+                    setOpenVideo={setOpenVideo}
+                />
             </ImageList>
         </Box>
     );
