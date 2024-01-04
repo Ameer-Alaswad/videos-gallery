@@ -2,7 +2,7 @@ export const footerMainBoxStyle = {
     width: "100%",
     backgroundColor: "#fff",
     paddingBottom: "50px",
-    marginBottom: 0,
+    marginBottom: "0",
     borderTop: "1px solid '#ddd'",
 };
 
