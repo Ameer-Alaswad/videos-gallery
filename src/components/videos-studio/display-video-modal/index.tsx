@@ -1,6 +1,6 @@
 import { Box, Modal } from "@mui/material";
 import { studioVideosData } from "../../../assets";
-import { mainBoxStyles } from "../styles.tsx";
+import { mainModalBoxStyles } from "../styles.tsx";
 import InstagramLink from "./instagram-icon/index.tsx";
 import { useState } from "react";
 import VideoPlayer from "./video/index.tsx";
@@ -28,7 +28,7 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={mainBoxStyles}>
+            <Box sx={mainModalBoxStyles}>
                 {videoId &&
                     studioVideosData.map(
                         ({ videoID, videoPath, instagramLink }) => {

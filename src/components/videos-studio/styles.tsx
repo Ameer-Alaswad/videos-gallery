@@ -1,4 +1,4 @@
-export const mainBoxStyles = {
+export const mainModalBoxStyles = {
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -40,7 +40,7 @@ export const imgListItemStyles = {
     justifyContent: "center",
 };
 
-export const mainImgListStyles = {
+export const imgListMainBoxStyles = {
     width: "100%",
     height: "1700px",
     display: "flex",

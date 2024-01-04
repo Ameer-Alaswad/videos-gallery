@@ -3,7 +3,11 @@ import { useState } from "react";
 import VideoPopupModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
 import VideoPlayer from "./display-video-modal/video";
-import { imgListItemStyles, mainImgListStyles, imgListStyles } from "./styles";
+import {
+    imgListItemStyles,
+    imgListMainBoxStyles,
+    imgListStyles,
+} from "./styles";
 
 export default function StandardImageList() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
@@ -19,7 +23,7 @@ export default function StandardImageList() {
     };
 
     return (
-        <Box sx={mainImgListStyles}>
+        <Box sx={imgListMainBoxStyles}>
             <ImageList sx={imgListStyles}>
                 {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
