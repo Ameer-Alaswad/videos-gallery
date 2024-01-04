@@ -1,4 +1,4 @@
-export const footerMainBoxStyle = {
+export const footerMainBoxStyles = {
     width: "100%",
     backgroundColor: "#fff",
     paddingBottom: "50px",
@@ -6,7 +6,7 @@ export const footerMainBoxStyle = {
     borderTop: "1px solid '#ddd'",
 };
 
-export const dividerStyle = {
+export const dividerStyles = {
     width: "70%",
     marginLeft: "auto",
     marginRight: "auto",
@@ -14,7 +14,7 @@ export const dividerStyle = {
     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.125)",
 };
 
-export const textStyle = {
+export const textStyles = {
     textAlign: "center",
     fontWeight: "bold",
     color: "#000",
