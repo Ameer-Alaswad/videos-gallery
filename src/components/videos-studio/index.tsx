@@ -11,8 +11,8 @@ export default function StandardImageList() {
 
     const handleOpen = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         const targetElement = event.target as HTMLElement;
-        const firstChild = targetElement.firstChild as HTMLElement;
-        setVideoId(firstChild.id);
+        const selectedVideoElement = targetElement.firstChild as HTMLElement;
+        setVideoId(selectedVideoElement.id);
         setOpenVideo(true);
     };
 
