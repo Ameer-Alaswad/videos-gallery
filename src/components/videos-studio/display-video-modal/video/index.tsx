@@ -9,7 +9,7 @@ interface videoProps {
     openVideo: boolean;
 }
 
-const Video = ({
+const VideoPlayer = ({
     width,
     height,
     objectFit,
@@ -36,4 +36,4 @@ const Video = ({
     );
 };
 
-export default Video;
+export default VideoPlayer;

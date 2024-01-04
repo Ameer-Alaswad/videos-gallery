@@ -3,7 +3,7 @@ import { studioVideosData } from "../../../assets";
 import { mainBoxStyles } from "../styles.tsx";
 import InstagramLink from "./instagram-icon/index.tsx";
 import { useState } from "react";
-import Video from "./video/index.tsx";
+import VideoPlayer from "./video/index.tsx";
 
 interface BasicModalProps {
     setOpenVideo: React.Dispatch<React.SetStateAction<boolean>>;
@@ -44,7 +44,7 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
                                         setInstagramIconVisible(false)
                                     }
                                 >
-                                    <Video
+                                    <VideoPlayer
                                         id={id}
                                         videoPath={videoPath}
                                         openVideo={openVideo}
