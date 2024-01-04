@@ -30,35 +30,37 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
         >
             <Box sx={mainBoxStyles}>
                 {videoId &&
-                    studioVideosData.map(({ id, videoPath, instagramLink }) => {
-                        if (id === videoId) {
-                            return (
-                                <Box
-                                    style={{
-                                        position: "relative",
-                                    }}
-                                    onMouseEnter={() =>
-                                        setInstagramIconVisible(true)
-                                    }
-                                    onMouseLeave={() =>
-                                        setInstagramIconVisible(false)
-                                    }
-                                >
-                                    <VideoPlayer
-                                        id={id}
-                                        videoPath={videoPath}
-                                        openVideo={openVideo}
-                                    />
-
-                                    {instagramIconVisible && (
-                                        <InstagramLink
-                                            instagramLink={instagramLink}
+                    studioVideosData.map(
+                        ({ videoID, videoPath, instagramLink }) => {
+                            if (videoID === videoId) {
+                                return (
+                                    <Box
+                                        style={{
+                                            position: "relative",
+                                        }}
+                                        onMouseEnter={() =>
+                                            setInstagramIconVisible(true)
+                                        }
+                                        onMouseLeave={() =>
+                                            setInstagramIconVisible(false)
+                                        }
+                                    >
+                                        <VideoPlayer
+                                            id={videoID}
+                                            videoPath={videoPath}
+                                            openVideo={openVideo}
                                         />
-                                    )}
-                                </Box>
-                            );
+
+                                        {instagramIconVisible && (
+                                            <InstagramLink
+                                                instagramLink={instagramLink}
+                                            />
+                                        )}
+                                    </Box>
+                                );
+                            }
                         }
-                    })}
+                    )}
             </Box>
         </Modal>
     );

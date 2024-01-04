@@ -21,17 +21,17 @@ export default function StandardImageList() {
     return (
         <Box sx={mainImgListStyles}>
             <ImageList sx={imgListStyles}>
-                {studioVideosData.map(({ id, videoPath }) => (
+                {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpenVideo(event)}
                         sx={imgListItemStyles}
-                        key={id}
+                        key={videoID}
                     >
                         <VideoPlayer
                             width={"200px"}
                             height={"200px"}
                             objectFit={"cover"}
-                            id={id}
+                            id={videoID}
                             videoPath={videoPath}
                             openVideo={openVideo}
                         />
