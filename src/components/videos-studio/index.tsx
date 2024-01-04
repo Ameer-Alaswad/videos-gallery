@@ -31,7 +31,7 @@ export default function StandardImageList() {
                             width={"200px"}
                             height={"200px"}
                             objectFit={"cover"}
-                            id={videoID}
+                            videoID={videoID}
                             videoPath={videoPath}
                             openVideo={openVideo}
                         />

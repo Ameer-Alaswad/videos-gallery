@@ -46,7 +46,7 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
                                         }
                                     >
                                         <VideoPlayer
-                                            id={videoID}
+                                            videoID={videoID}
                                             videoPath={videoPath}
                                             openVideo={openVideo}
                                         />
