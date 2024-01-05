@@ -9,16 +9,16 @@ import {
     imgListStyles,
 } from "./styles";
 
-export default function StandardImageList() {
+export default function VideosStudio() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
-    const [videoId, setVideoId] = useState<string>("");
+    const [activeVideoId, setActiveVideoId] = useState<string>("");
 
     const handleOpenVideo = (
         event: React.MouseEvent<HTMLLIElement, MouseEvent>
     ) => {
         const targetElement = event.target as HTMLElement;
         const selectedVideoElement = targetElement.firstChild as HTMLElement;
-        setVideoId(selectedVideoElement.id);
+        setActiveVideoId(selectedVideoElement.id);
         setOpenVideo(true);
     };
 
@@ -36,13 +36,14 @@ export default function StandardImageList() {
                             height={"200px"}
                             objectFit={"cover"}
                             videoID={videoID}
+                            activeVideoId={activeVideoId}
                             videoPath={videoPath}
                             openVideo={openVideo}
                         />
                     </ImageListItem>
                 ))}
                 <VideoPopupModal
-                    videoId={videoId}
+                    activeVideoId={activeVideoId}
                     openVideo={openVideo}
                     setOpenVideo={setOpenVideo}
                 />

@@ -7,6 +7,7 @@ interface videoProps {
     videoID: string;
     videoPath: string;
     openVideo: boolean;
+    activeVideoId?: string;
 }
 
 const VideoPlayer = ({
@@ -16,21 +17,19 @@ const VideoPlayer = ({
     videoID,
     videoPath,
     openVideo,
+    activeVideoId,
 }: videoProps) => {
-    const videoStyle: CSSProperties = {
+    const videoStyles: CSSProperties = {
         width: width || "100%",
         height: height || "100%",
         transition: "transform 1s",
         objectFit: objectFit || "fill",
     };
 
+    const isNotActiveVideo = activeVideoId === videoID && openVideo;
+
     return (
-        <video
-            style={videoStyle}
-            loop
-            muted={openVideo ? false : true}
-            autoPlay
-        >
+        <video style={videoStyles} loop muted={isNotActiveVideo} autoPlay>
             <source id={videoID} src={`${videoPath}`} type="video/mp4" />
         </video>
     );

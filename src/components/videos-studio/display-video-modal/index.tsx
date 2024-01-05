@@ -5,16 +5,16 @@ import InstagramLink from "./instagram-icon/index.tsx";
 import { useState } from "react";
 import VideoPlayer from "./video/index.tsx";
 
-interface BasicModalProps {
+interface VideoPopupModalProps {
     setOpenVideo: React.Dispatch<React.SetStateAction<boolean>>;
     openVideo: boolean;
-    videoId: string;
+    activeVideoId: string;
 }
 
-const VideoPopupModal: React.FC<BasicModalProps> = ({
+const VideoPopupModal: React.FC<VideoPopupModalProps> = ({
     setOpenVideo,
     openVideo,
-    videoId,
+    activeVideoId,
 }) => {
     const handleCloseVideo = () => setOpenVideo(false);
 
@@ -29,10 +29,10 @@ const VideoPopupModal: React.FC<BasicModalProps> = ({
             aria-describedby="modal-modal-description"
         >
             <Box sx={mainModalBoxStyles}>
-                {videoId &&
+                {activeVideoId &&
                     studioVideosData.map(
                         ({ videoID, videoPath, instagramLink }) => {
-                            if (videoID === videoId) {
+                            if (videoID === activeVideoId) {
                                 return (
                                     <Box
                                         style={{
