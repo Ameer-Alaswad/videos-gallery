@@ -1,6 +1,8 @@
 import Typography from "@mui/material/Typography";
 import { IconButton, Box, Popover } from "@mui/material";
 import { useState } from "react";
+import { CREATED_BY } from "../../../assets/text";
+import ContactUsForm from "./contact-us-form";
 
 const contactUsPopoverContainerStyle = {
     display: "flex",
@@ -14,7 +16,6 @@ const contactUsPopoverImageStyles = {
 };
 
 export default function ContactUsPopover() {
-
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,40 +32,45 @@ export default function ContactUsPopover() {
     return (
         <Box
             data-testid="contact-us-popover-container"
-            sx={ contactUsPopoverContainerStyle }
+            sx={contactUsPopoverContainerStyle}
         >
             <IconButton
                 data-testid="open-close"
-                aria-describedby={ id }
-                onClick={ handleClick }
+                aria-describedby={id}
+                onClick={handleClick}
                 color="inherit"
                 size="large"
-                sx={ { marginTop: "60px" } }
+                sx={{ marginTop: "60px" }}
             >
                 <img
                     src="1918043-200.png"
                     alt="Custom Icon"
-                    style={ contactUsPopoverImageStyles }
+                    style={contactUsPopoverImageStyles}
                 />
             </IconButton>
             <Popover
-                id={ id }
-                open={ open }
-                anchorEl={ anchorEl }
-                onClose={ handleClose }
-                anchorOrigin={ {
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "center",
-                } }
-                transformOrigin={ {
+                }}
+                transformOrigin={{
                     vertical: "top",
                     horizontal: "center",
-                } }
-                sx={ { zIndex: 'unset' } }
+                }}
+                sx={{ zIndex: "unset" }}
             >
-                <Typography data-testid="paragraph" sx={ { p: 2 } }>The content of the Popover.</Typography>
+                <Typography
+                    data-testid="paragraph"
+                    sx={{ p: 2, textAlign: "center" }}
+                >
+                    {CREATED_BY}
+                </Typography>
+                <ContactUsForm />
             </Popover>
-
         </Box>
     );
 }
