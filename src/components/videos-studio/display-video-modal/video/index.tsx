@@ -26,10 +26,10 @@ const VideoPlayer = ({
         objectFit: objectFit || "fill",
     };
 
-    const isNotActiveVideo = activeVideoId === videoID && openVideo;
+    const isNotMuted = activeVideoId === videoID && openVideo ? false : true;
 
     return (
-        <video style={videoStyles} loop muted={isNotActiveVideo} autoPlay>
+        <video style={videoStyles} autoPlay loop muted={isNotMuted}>
             <source id={videoID} src={`${videoPath}`} type="video/mp4" />
         </video>
     );
