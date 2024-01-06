@@ -1,62 +1,62 @@
+import { Box, Modal } from "@mui/material";
+import { studioVideosData } from "../../../assets";
+import { mainModalBoxStyles } from "../styles.tsx";
+import InstagramLink from "./instagram-icon/index.tsx";
+import { useState } from "react";
+import VideoPlayer from "./video/index.tsx";
 
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import { studioVideosData } from '../../../assets';
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-interface BasicModalProps {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    open: boolean;
-    videoLink: string;
+interface VideoPopupModalProps {
+    setOpenVideo: React.Dispatch<React.SetStateAction<boolean>>;
+    openVideo: boolean;
+    activeVideoId: string;
 }
 
-const BasicModal: React.FC<BasicModalProps> = ({ setOpen, open, videoLink }) => {
-    const handleClose = () => setOpen(false);
+const VideoPopupModal: React.FC<VideoPopupModalProps> = ({
+    setOpenVideo,
+    openVideo,
+    activeVideoId,
+}) => {
+    const handleCloseVideo = () => setOpenVideo(false);
 
+    const [instagramIconVisible, setInstagramIconVisible] =
+        useState<boolean>(false);
+
+    const activeVideo = studioVideosData.find(
+        ({ videoID }) => videoID === activeVideoId
+    );
+
+    if (!activeVideo) {
+        return null;
+    }
     return (
         <Modal
-            open={ open }
-            onClose={ handleClose }
+            open={openVideo}
+            onClose={handleCloseVideo}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={ style }>
-                { videoLink &&
-                    studioVideosData.map((item) => {
-                        if (item.title === videoLink) {
-                            return (
-                                <video
-                                    style={ {
-                                        width: "100%",
-                                        height: "100%",
-                                        transition: "transform 0.3s",
-                                    } }
-                                    loop
-                                    muted
-                                    autoPlay
-                                >
-                                    <source
-                                        id={ item.title }
-                                        src={ `${item.video}` }
-                                        type="video/mp4"
-                                    />
-                                    Your browser does not support the video tag.
-                                </video>
-                            );
-                        }
-                    }) }
+            <Box sx={mainModalBoxStyles}>
+                <Box
+                    sx={{
+                        position: "relative",
+                    }}
+                    onMouseEnter={() => setInstagramIconVisible(true)}
+                    onMouseLeave={() => setInstagramIconVisible(false)}
+                >
+                    <VideoPlayer
+                        videoID={activeVideo.videoID}
+                        videoPath={activeVideo.videoPath}
+                        openVideo={openVideo}
+                    />
+
+                    {instagramIconVisible && (
+                        <InstagramLink
+                            instagramLink={activeVideo.instagramLink}
+                        />
+                    )}
+                </Box>
             </Box>
         </Modal>
     );
-}
-export default BasicModal
+};
+export default VideoPopupModal;
