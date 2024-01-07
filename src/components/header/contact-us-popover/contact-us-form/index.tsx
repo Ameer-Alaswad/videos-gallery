@@ -27,7 +27,11 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box sx={{ width: "500px" }}>
+        <Box
+            sx={{
+                width: "500px",
+            }}
+        >
             <form ref={form} onSubmit={sendEmail}>
                 <InputLabel
                     htmlFor="my-textarea"
@@ -43,7 +47,7 @@ const ContactUsForm = () => {
                         color: "white",
                         width: "90%",
                         height: "100px",
-                        margin: "10px",
+                        marginLeft: "20px",
                         borderRadius: "8px",
                     }}
                 />
@@ -55,7 +59,7 @@ const ContactUsForm = () => {
                         border: "none",
                         background: "none",
                         color: "black",
-                        marginLeft: "38%",
+                        marginLeft: "43%",
                     }}
                 >
                     {SEND}
