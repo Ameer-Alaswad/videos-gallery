@@ -1,7 +1,7 @@
 import { useRef, FormEvent } from "react";
 import emailjs, { EmailJSResponseStatus } from "emailjs-com";
-import { Box, Input } from "@mui/material";
-import { CONTACT_ME } from "../../../../assets/text";
+import { Box, Button, InputLabel, TextareaAutosize } from "@mui/material";
+import { MESSAGE, SEND } from "../../../../assets/text";
 
 const serviceId = import.meta.env.VITE_SERVICE_ID as string;
 const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
@@ -27,26 +27,39 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box>
+        <Box sx={{ width: "500px" }}>
             <form ref={form} onSubmit={sendEmail}>
-                <label style={{ fontSize: "30px", margin: "15px" }}>
-                    {CONTACT_ME}
-                </label>
-                <Input
-                    color="primary"
-                    placeholder="  send me a message"
+                <InputLabel
+                    htmlFor="my-textarea"
+                    sx={{ textAlign: "center", padding: "10px" }}
+                >
+                    {MESSAGE}
+                </InputLabel>
+                <TextareaAutosize
+                    id="my-textarea"
                     name="message"
-                    sx={{
+                    minRows={3}
+                    style={{
+                        color: "white",
+                        width: "90%",
+                        height: "100px",
                         margin: "10px",
-                        border: "1px black solid",
-                        boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)",
+                        borderRadius: "8px",
                     }}
                 />
-                <input
+                <Button
                     type="submit"
-                    value="Send"
-                    style={{ fontSize: "20px", margin: "15px" }}
-                />
+                    variant="text"
+                    color="inherit"
+                    style={{
+                        border: "none",
+                        background: "none",
+                        color: "black",
+                        marginLeft: "38%",
+                    }}
+                >
+                    {SEND}
+                </Button>
             </form>
         </Box>
     );

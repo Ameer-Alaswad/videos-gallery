@@ -1,8 +1,9 @@
 import Typography from "@mui/material/Typography";
-import { IconButton, Box, Popover } from "@mui/material";
+import { IconButton, Box, Popover, Divider } from "@mui/material";
 import { useState } from "react";
-import { CREATED_BY } from "../../../assets/text";
+import { ARTIST } from "../../../assets/text";
 import ContactUsForm from "./contact-us-form";
+import { dividerStyles } from "../../footer/styles";
 
 const contactUsPopoverContainerStyle = {
     display: "flex",
@@ -67,8 +68,9 @@ export default function ContactUsPopover() {
                     data-testid="paragraph"
                     sx={{ p: 2, textAlign: "center" }}
                 >
-                    {CREATED_BY}
+                    {ARTIST}
                 </Typography>
+                <Divider style={dividerStyles} />
                 <ContactUsForm />
             </Popover>
         </Box>
