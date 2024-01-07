@@ -56,7 +56,7 @@ export const imgListStyles = {
     width: "750px",
     padding: "60px",
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "start",
     flexWrap: "wrap",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
         width: "500px",
