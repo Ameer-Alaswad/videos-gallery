@@ -13,14 +13,19 @@ const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
 const publicKey = import.meta.env.VITE_PUBLIC_KEY as string;
 
 const ContactUsForm = () => {
-    const form = useRef<HTMLFormElement>(null);
+    const contactFormRef = useRef<HTMLFormElement>(null);
 
-    const sendEmail = (e: FormEvent) => {
-        e.preventDefault();
+    const sendEmail = (event: FormEvent) => {
+        event.preventDefault();
 
-        if (form.current) {
+        if (contactFormRef.current) {
             emailjs
-                .sendForm(serviceId, templateId, form.current, publicKey)
+                .sendForm(
+                    serviceId,
+                    templateId,
+                    contactFormRef.current,
+                    publicKey
+                )
                 .then(
                     (result: EmailJSResponseStatus) => {
                         console.log(result.text);
@@ -38,7 +43,7 @@ const ContactUsForm = () => {
                 width: "500px",
             }}
         >
-            <Box ref={form} onSubmit={sendEmail} component="form">
+            <Box ref={contactFormRef} onSubmit={sendEmail} component="form">
                 <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
                     {MESSAGE}
                 </InputLabel>
