@@ -24,6 +24,16 @@ export default function ContactUsPopover() {
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
 
+    const anchorOriginVerticalCenterHorizontalBottom = {
+        vertical: "bottom" as const,
+        horizontal: "center" as const,
+    };
+
+    const transformOriginVerticalCenterHorizontalTop = {
+        vertical: "top" as const,
+        horizontal: "center" as const,
+    };
+
     return (
         <Box
             data-testid="contact-us-popover-container"
@@ -48,14 +58,8 @@ export default function ContactUsPopover() {
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
-                anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "center",
-                }}
-                transformOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                }}
+                anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
+                transformOrigin={transformOriginVerticalCenterHorizontalTop}
                 sx={{ zIndex: "unset" }}
             >
                 <Typography data-testid="paragraph" sx={popoverTextStyles}>
