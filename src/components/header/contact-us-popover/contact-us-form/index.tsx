@@ -2,7 +2,11 @@ import { useRef, FormEvent } from "react";
 import emailjs, { EmailJSResponseStatus } from "emailjs-com";
 import { Box, Button, InputLabel, TextareaAutosize } from "@mui/material";
 import { MESSAGE, SEND } from "../../../../assets/text";
-import { buttonStyles, textAreaStyles } from "./styles";
+import {
+    contactUsPopoverButtonStyles,
+    contactUsPopoverTextAreaStyles,
+    contactUsPopoverFormStyles,
+} from "../../styles";
 
 const serviceId = import.meta.env.VITE_SERVICE_ID as string;
 const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
@@ -34,10 +38,10 @@ const ContactUsForm = () => {
                 width: "500px",
             }}
         >
-            <form ref={form} onSubmit={sendEmail}>
+            <Box ref={form} onSubmit={sendEmail} component="form">
                 <InputLabel
                     htmlFor="my-textarea"
-                    sx={{ textAlign: "center", padding: "10px" }}
+                    sx={contactUsPopoverFormStyles}
                 >
                     {MESSAGE}
                 </InputLabel>
@@ -45,17 +49,17 @@ const ContactUsForm = () => {
                     id="my-textarea"
                     name="message"
                     minRows={3}
-                    style={textAreaStyles}
+                    style={contactUsPopoverTextAreaStyles}
                 />
                 <Button
                     type="submit"
                     variant="text"
                     color="inherit"
-                    style={buttonStyles}
+                    sx={contactUsPopoverButtonStyles}
                 >
                     {SEND}
                 </Button>
-            </form>
+            </Box>
         </Box>
     );
 };

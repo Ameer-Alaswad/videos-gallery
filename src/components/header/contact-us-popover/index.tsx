@@ -4,17 +4,11 @@ import { useState } from "react";
 import { ARTIST } from "../../../assets/text";
 import ContactUsForm from "./contact-us-form";
 import { dividerStyles } from "../../footer/styles";
-
-const contactUsPopoverContainerStyle = {
-    display: "flex",
-    width: "100%",
-    justifyContent: "center",
-};
-const contactUsPopoverImageStyles = {
-    width: "30px",
-    height: "30px",
-    transform: "rotate(90deg)",
-};
+import {
+    popoverTextStyles,
+    contactUsPopoverContainerStyle,
+    contactUsPopoverImageStyles,
+} from "../styles";
 
 export default function ContactUsPopover() {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
@@ -64,10 +58,7 @@ export default function ContactUsPopover() {
                 }}
                 sx={{ zIndex: "unset" }}
             >
-                <Typography
-                    data-testid="paragraph"
-                    sx={{ p: 2, textAlign: "center" }}
-                >
+                <Typography data-testid="paragraph" sx={popoverTextStyles}>
                     {ARTIST}
                 </Typography>
                 <Divider style={dividerStyles} />
