@@ -39,14 +39,11 @@ const ContactUsForm = () => {
             }}
         >
             <Box ref={form} onSubmit={sendEmail} component="form">
-                <InputLabel
-                    htmlFor="my-textarea"
-                    sx={contactUsPopoverFormStyles}
-                >
+                <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
                     {MESSAGE}
                 </InputLabel>
                 <TextareaAutosize
-                    id="my-textarea"
+                    id="textarea"
                     name="message"
                     minRows={3}
                     style={contactUsPopoverTextAreaStyles}
