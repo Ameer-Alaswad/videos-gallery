@@ -7,6 +7,8 @@ import {
     contactUsPopoverTextAreaStyles,
     contactUsPopoverFormStyles,
 } from "../../styles";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const serviceId = import.meta.env.VITE_SERVICE_ID as string;
 const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
@@ -28,10 +30,13 @@ const ContactUsForm = () => {
                 )
                 .then(
                     (result: EmailJSResponseStatus) => {
-                        console.log(result.text);
+                        const successMessage = result.text || "";
+                        toast(`${successMessage}, Message sent`);
                     },
                     (error: EmailJSResponseStatus) => {
-                        console.log(error.text);
+                        const errorMessage =
+                            error.text || "An unknown error occurred";
+                        toast(`Error: ${errorMessage}`);
                     }
                 );
         }
@@ -62,6 +67,7 @@ const ContactUsForm = () => {
                     {SEND}
                 </Button>
             </Box>
+            <ToastContainer />
         </Box>
     );
 };
