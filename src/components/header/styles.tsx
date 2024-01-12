@@ -50,7 +50,7 @@ export const contactUsPopoverImageStyles = {
     transform: "rotate(90deg)",
 };
 
-export const contactUsPopoverMainBox = {
+export const contactUsPopoverMainContainerStyles = {
     width: "500px",
     "@media screen and (max-width: 480px)": {
         width: "400px",
