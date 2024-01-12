@@ -1,6 +1,6 @@
 import { useRef, FormEvent } from "react";
 import emailjs, { EmailJSResponseStatus } from "emailjs-com";
-import { Box, Button, InputLabel, TextareaAutosize } from "@mui/material";
+import { Box, Button, InputLabel } from "@mui/material";
 import { MESSAGE, SEND } from "../../../../assets/text";
 import {
     contactUsPopoverButtonStyles,
@@ -8,6 +8,7 @@ import {
     contactUsPopoverFormStyles,
     contactUsPopoverMainBox,
 } from "../../styles";
+import Textarea from "@mui/joy/Textarea";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -24,7 +25,7 @@ const ContactUsForm = () => {
         if (contactFormRef.current) {
             const message = contactFormRef.current.userFeedback.value.trim();
 
-            if (message === "" || containsLink(message)) {
+            if (containsLink(message)) {
                 toast("Invalid message. Please check and try again.");
                 return;
             }
@@ -60,11 +61,12 @@ const ContactUsForm = () => {
                 <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
                     {MESSAGE}
                 </InputLabel>
-                <TextareaAutosize
+                <Textarea
                     id="textarea"
                     name="userFeedback"
                     minRows={3}
-                    style={contactUsPopoverTextAreaStyles}
+                    sx={contactUsPopoverTextAreaStyles}
+                    required
                 />
                 <Button
                     type="submit"
