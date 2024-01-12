@@ -71,3 +71,8 @@ export const imgListStyles = {
         paddingRight: "20px",
     },
 };
+
+export const contactUsPopOverContainerStyles = {
+    zIndex: "0",
+    top: "-13px",
+};

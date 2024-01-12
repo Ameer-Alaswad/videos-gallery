@@ -7,7 +7,11 @@ const headerContainerStyles = {
     backgroundColor: "white",
     color: "black",
     height: "90px",
+    width: "100vw",
+    position: "relative",
+    zIndex: "10",
 };
+
 const headerContentContainerStyles = {
     display: "flex",
     justifyContent: "center",
@@ -19,10 +23,14 @@ const headerContentContainerStyles = {
 
 const Header = () => {
     return (
-        <AppBar data-testid="app-bar" sx={ headerContainerStyles } position="static">
+        <AppBar
+            data-testid="app-bar"
+            sx={headerContainerStyles}
+            position="static"
+        >
             <Box
                 data-testid="header-content-container"
-                sx={ headerContentContainerStyles }
+                sx={headerContentContainerStyles}
             >
                 <Logo />
                 <ContactUsPopover />
