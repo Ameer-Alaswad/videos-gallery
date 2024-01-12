@@ -6,6 +6,7 @@ import {
     contactUsPopoverButtonStyles,
     contactUsPopoverTextAreaStyles,
     contactUsPopoverFormStyles,
+    contactUsPopoverMainBox,
 } from "../../styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -54,11 +55,7 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box
-            sx={{
-                width: "500px",
-            }}
-        >
+        <Box sx={contactUsPopoverMainBox}>
             <Box ref={contactFormRef} onSubmit={sendEmail} component="form">
                 <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
                     {MESSAGE}

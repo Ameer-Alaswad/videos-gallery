@@ -1,10 +1,13 @@
 export const contactUsPopoverTextAreaStyles = {
     width: "90%",
     height: "100px",
-    marginLeft: "20px",
+    marginLeft: "4%",
     borderRadius: "8px",
     color: "black",
     padding: "5px",
+    "@media screen and (max-width: 480px)": {
+        marginLeft: "3px",
+    },
 };
 
 export const contactUsPopoverButtonStyles = {
@@ -45,4 +48,11 @@ export const contactUsPopoverImageStyles = {
     width: "30px",
     height: "30px",
     transform: "rotate(90deg)",
+};
+
+export const contactUsPopoverMainBox = {
+    width: "500px",
+    "@media screen and (max-width: 480px)": {
+        width: "400px",
+    },
 };
