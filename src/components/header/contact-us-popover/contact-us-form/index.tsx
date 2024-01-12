@@ -21,6 +21,13 @@ const ContactUsForm = () => {
         event.preventDefault();
 
         if (contactFormRef.current) {
+            const message = contactFormRef.current.userFeedback.value.trim();
+
+            if (message === "" || containsLink(message)) {
+                toast("Invalid message. Please check and try again.");
+                return;
+            }
+
             emailjs
                 .sendForm(
                     serviceId,
@@ -39,6 +46,11 @@ const ContactUsForm = () => {
                     }
                 );
         }
+    };
+
+    const containsLink = (text: string): boolean => {
+        const linkRegex = /(http[s]?:\/\/[^\s]+)/;
+        return linkRegex.test(text);
     };
 
     return (
