@@ -29,9 +29,8 @@ const ContactUsForm = () => {
                     publicKey
                 )
                 .then(
-                    (result: EmailJSResponseStatus) => {
-                        const successMessage = result.text || "";
-                        toast(`${successMessage}, Message sent`);
+                    () => {
+                        toast(`Message sent`);
                     },
                     (error: EmailJSResponseStatus) => {
                         const errorMessage =
@@ -54,7 +53,7 @@ const ContactUsForm = () => {
                 </InputLabel>
                 <TextareaAutosize
                     id="textarea"
-                    name="message"
+                    name="userFeedback"
                     minRows={3}
                     style={contactUsPopoverTextAreaStyles}
                 />
