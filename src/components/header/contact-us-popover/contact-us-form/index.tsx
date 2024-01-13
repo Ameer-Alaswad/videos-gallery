@@ -5,6 +5,7 @@ import {
     contactUsPopoverButtonStyles,
     contactUsPopoverFormStyles,
     contactUsPopoverMainContainerStyles,
+    contactUsFormContainerStyles,
 } from "../../styles";
 import { TextareaAutosize } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,41 +13,34 @@ import "react-toastify/dist/ReactToastify.css";
 import { INVALID_MESSAGE } from "../../../../assets/text.tsx";
 import { containsLink, sendUserFeedback } from "../../../../utils/utils.tsx";
 import { styled } from "@mui/system";
-
-const StyledTextarea = styled(TextareaAutosize)(({ theme }) => ({
+const StyledTextarea = styled(TextareaAutosize)(() => ({
     width: "80%",
-    marginLeft: "5%",
     borderRadius: "8px",
     color: "black",
     padding: "25px",
-    [theme.breakpoints.down("sm")]: {
-        marginLeft: "3%",
-    },
 }));
-
 const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
-
     const sendEmail = (event: FormEvent) => {
         event.preventDefault();
-
         const contactUsFormElement = contactUsFormRef.current;
-
         if (contactUsFormElement) {
             const userFeedback = contactUsFormElement.userFeedback.value.trim();
-
             if (containsLink(userFeedback)) {
                 toast(INVALID_MESSAGE);
                 return;
             }
-
             sendUserFeedback(contactUsFormElement);
         }
     };
-
     return (
         <Box sx={contactUsPopoverMainContainerStyles}>
-            <Box ref={contactUsFormRef} onSubmit={sendEmail} component="form">
+            <Box
+                ref={contactUsFormRef}
+                onSubmit={sendEmail}
+                component="form"
+                sx={contactUsFormContainerStyles}
+            >
                 <InputLabel
                     htmlFor="contactUsMessage"
                     sx={contactUsPopoverFormStyles}
@@ -60,6 +54,7 @@ const ContactUsForm = () => {
                     required
                 />
                 <Button
+                    data-testid="contact-us-form-submit-button"
                     type="submit"
                     variant="text"
                     color="inherit"
@@ -67,10 +62,9 @@ const ContactUsForm = () => {
                 >
                     {SEND}
                 </Button>
+                <ToastContainer />
             </Box>
-            <ToastContainer />
         </Box>
     );
 };
-
 export default ContactUsForm;

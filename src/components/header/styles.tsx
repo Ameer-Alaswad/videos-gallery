@@ -9,14 +9,11 @@ export const contactUsPopoverTextAreaStyles = {
         marginLeft: "3px",
     },
 };
-
 export const contactUsPopoverButtonStyles = {
     border: "none",
     background: "none",
     color: "black",
-    marginLeft: "43%",
 };
-
 export const headerContainerStyles = {
     backgroundColor: "white",
     color: "black",
@@ -33,14 +30,11 @@ export const headerContentContainerStyles = {
     margin: "0 auto",
     height: "100%",
 };
-
 export const contactUsPopoverFormStyles = {
     textAlign: "center",
     padding: "10px",
 };
-
 export const contactUsTypographyStyles = { p: 2, textAlign: "center" };
-
 export const contactUsContainerStyles = {
     display: "flex",
     width: "100%",
@@ -51,15 +45,20 @@ export const contactUsPopoverImageStyles = {
     height: "30px",
     transform: "rotate(90deg)",
 };
-
 export const contactUsPopoverMainContainerStyles = {
     width: "500px",
-    "@media screen and (max-width: 480px)": {
-        width: "400px",
+    "@media screen and (max-width: 500px)": {
+        width: "90vw",
     },
 };
-
 export const contactUsPopoverContainerStyles = {
     zIndex: "0",
     top: "-13px",
+};
+
+export const contactUsFormContainerStyles = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
 };
