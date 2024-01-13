@@ -5,7 +5,7 @@ import { ARTIST } from "../../../assets/text";
 import ContactUsForm from "./contact-us-form";
 import { dividerStyles } from "../../footer/styles";
 import {
-    popoverTextStyles,
+    contactUsTypographyStyles,
     contactUsPopoverContainerStyle,
     contactUsPopoverImageStyles,
 } from "../styles";
@@ -13,16 +13,18 @@ import {
 export default function ContactUsPopover() {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleOpenContactUsPopover = (
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleCloseContactUsPopover = () => {
         setAnchorEl(null);
     };
 
-    const open = Boolean(anchorEl);
-    const id = open ? "simple-popover" : undefined;
+    const isPopoverOpen = Boolean(anchorEl);
+    const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
 
     const anchorOriginVerticalCenterHorizontalBottom = {
         vertical: "bottom" as const,
@@ -41,28 +43,31 @@ export default function ContactUsPopover() {
         >
             <IconButton
                 data-testid="open-close"
-                aria-describedby={id}
-                onClick={handleClick}
+                aria-describedby={contactUsPopoverId}
+                onClick={handleOpenContactUsPopover}
                 color="inherit"
                 size="large"
                 sx={{ marginTop: "60px" }}
             >
                 <img
                     src="1918043-200.png"
-                    alt="Custom Icon"
+                    alt="Open contact us popover icon"
                     style={contactUsPopoverImageStyles}
                 />
             </IconButton>
             <Popover
-                id={id}
-                open={open}
+                id={contactUsPopoverId}
+                open={isPopoverOpen}
                 anchorEl={anchorEl}
-                onClose={handleClose}
+                onClose={handleCloseContactUsPopover}
                 anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
                 transformOrigin={transformOriginVerticalCenterHorizontalTop}
                 sx={{ zIndex: "unset" }}
             >
-                <Typography data-testid="paragraph" sx={popoverTextStyles}>
+                <Typography
+                    data-testid="paragraph"
+                    sx={contactUsTypographyStyles}
+                >
                     {ARTIST}
                 </Typography>
                 <Divider style={dividerStyles} />

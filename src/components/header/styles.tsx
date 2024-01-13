@@ -37,7 +37,7 @@ export const contactUsPopoverFormStyles = {
     padding: "10px",
 };
 
-export const popoverTextStyles = { p: 2, textAlign: "center" };
+export const contactUsTypographyStyles = { p: 2, textAlign: "center" };
 
 export const contactUsPopoverContainerStyle = {
     display: "flex",
