@@ -47,11 +47,14 @@ const ContactUsForm = () => {
     return (
         <Box sx={contactUsPopoverMainContainerStyles}>
             <Box ref={contactUsFormRef} onSubmit={sendEmail} component="form">
-                <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
+                <InputLabel
+                    htmlFor="userFeedback"
+                    sx={contactUsPopoverFormStyles}
+                >
                     {MESSAGE}
                 </InputLabel>
                 <StyledTextarea
-                    id="textarea"
+                    id="userFeedback"
                     name="userFeedback"
                     minRows={3}
                     required
