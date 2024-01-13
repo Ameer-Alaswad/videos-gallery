@@ -54,8 +54,8 @@ export const contactUsPopoverImageStyles = {
 
 export const contactUsPopoverMainContainerStyles = {
     width: "500px",
-    "@media screen and (max-width: 480px)": {
-        width: "400px",
+    "@media screen and (max-width: 500px)": {
+        width: "90vw",
     },
 };
 

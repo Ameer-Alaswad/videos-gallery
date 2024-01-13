@@ -45,30 +45,30 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box sx={contactUsPopoverMainContainerStyles}>
-            <Box ref={contactUsFormRef} onSubmit={sendEmail} component="form">
+        <Box sx={ contactUsPopoverMainContainerStyles }>
+            <Box ref={ contactUsFormRef } onSubmit={ sendEmail } component="form">
                 <InputLabel
                     htmlFor="contactUsMessage"
-                    sx={contactUsPopoverFormStyles}
+                    sx={ contactUsPopoverFormStyles }
                 >
-                    {MESSAGE}
+                    { MESSAGE }
                 </InputLabel>
                 <StyledTextarea
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={3}
+                    minRows={ 3 }
                     required
                 />
                 <Button
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={contactUsPopoverButtonStyles}
+                    sx={ contactUsPopoverButtonStyles }
                 >
-                    {SEND}
+                    { SEND }
                 </Button>
+                <ToastContainer />
             </Box>
-            <ToastContainer />
         </Box>
     );
 };
