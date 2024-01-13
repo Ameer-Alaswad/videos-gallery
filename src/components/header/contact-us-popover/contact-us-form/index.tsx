@@ -3,15 +3,26 @@ import { Box, Button, InputLabel } from "@mui/material";
 import { MESSAGE, SEND } from "../../../../assets/text";
 import {
     contactUsPopoverButtonStyles,
-    contactUsPopoverTextAreaStyles,
     contactUsPopoverFormStyles,
     contactUsPopoverMainContainerStyles,
 } from "../../styles";
-import Textarea from "@mui/joy/Textarea";
+import { TextareaAutosize } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { INVALID_MESSAGE } from "../../../../assets/text.tsx";
 import { containsLink, sendUserFeedback } from "../../../../utils/utils.tsx";
+import { styled } from "@mui/system";
+
+const StyledTextarea = styled(TextareaAutosize)(({ theme }) => ({
+    width: "80%",
+    marginLeft: "5%",
+    borderRadius: "8px",
+    color: "black",
+    padding: "25px",
+    [theme.breakpoints.down("sm")]: {
+        marginLeft: "3%",
+    },
+}));
 
 const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
@@ -39,11 +50,10 @@ const ContactUsForm = () => {
                 <InputLabel htmlFor="textarea" sx={contactUsPopoverFormStyles}>
                     {MESSAGE}
                 </InputLabel>
-                <Textarea
+                <StyledTextarea
                     id="textarea"
                     name="userFeedback"
                     minRows={3}
-                    sx={contactUsPopoverTextAreaStyles}
                     required
                 />
                 <Button
