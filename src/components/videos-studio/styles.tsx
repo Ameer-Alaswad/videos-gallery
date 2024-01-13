@@ -9,8 +9,8 @@ export const mainModalBoxStyles = {
         outline: "none",
     },
     "@media screen and (max-width: 480px)": {
-        width: "300px",
-        height: "200px",
+        height: "70vh",
+        width: "80vw",
     },
 };
 
@@ -43,12 +43,6 @@ export const imgListMainContainerStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    "@media screen and (min-width: 481px) and (max-width: 767px)": {
-        height: "2700px",
-    },
-    "@media screen and (max-width: 480px)": {
-        height: "5000px",
-    },
 };
 
 export const imgListStyles = {
@@ -58,15 +52,9 @@ export const imgListStyles = {
     flexWrap: "wrap",
     overflow: "visible",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
-        width: "500px",
-        height: "2500px",
-        paddingLeft: "25px",
-        paddingRight: "25px",
+        width: "450px",
     },
     "@media screen and (max-width: 480px)": {
-        width: "300px",
-        height: "5000px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        width: "200px",
     },
 };
