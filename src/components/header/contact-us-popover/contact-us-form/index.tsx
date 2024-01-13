@@ -23,16 +23,20 @@ const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
     const sendEmail = (event: FormEvent) => {
         event.preventDefault();
+
         const contactUsFormElement = contactUsFormRef.current;
         if (contactUsFormElement) {
-            const userFeedback = contactUsFormElement.userFeedback.value.trim();
+            const userFeedback =
+                contactUsFormElement.contactUsMessage.value.trim();
             if (containsLink(userFeedback)) {
                 toast(INVALID_MESSAGE);
                 return;
             }
+
             sendUserFeedback(contactUsFormElement);
         }
     };
+
     return (
         <Box sx={contactUsPopoverMainContainerStyles}>
             <Box
@@ -41,17 +45,16 @@ const ContactUsForm = () => {
                 component="form"
                 sx={contactUsFormContainerStyles}
             >
-
                 <InputLabel
                     htmlFor="contactUsMessage"
-                    sx={ contactUsPopoverFormStyles }
+                    sx={contactUsPopoverFormStyles}
                 >
-                    { MESSAGE }
+                    {MESSAGE}
                 </InputLabel>
                 <StyledTextarea
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={ 3 }
+                    minRows={3}
                     required
                 />
                 <Button
@@ -59,9 +62,9 @@ const ContactUsForm = () => {
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={ contactUsPopoverButtonStyles }
+                    sx={contactUsPopoverButtonStyles}
                 >
-                    { SEND }
+                    {SEND}
                 </Button>
                 <ToastContainer />
             </Box>
