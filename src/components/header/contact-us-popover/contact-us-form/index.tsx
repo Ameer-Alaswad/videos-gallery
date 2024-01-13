@@ -41,16 +41,17 @@ const ContactUsForm = () => {
                 component="form"
                 sx={contactUsFormContainerStyles}
             >
+
                 <InputLabel
                     htmlFor="contactUsMessage"
-                    sx={contactUsPopoverFormStyles}
+                    sx={ contactUsPopoverFormStyles }
                 >
-                    {MESSAGE}
+                    { MESSAGE }
                 </InputLabel>
                 <StyledTextarea
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={3}
+                    minRows={ 3 }
                     required
                 />
                 <Button
@@ -58,9 +59,9 @@ const ContactUsForm = () => {
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={contactUsPopoverButtonStyles}
+                    sx={ contactUsPopoverButtonStyles }
                 >
-                    {SEND}
+                    { SEND }
                 </Button>
                 <ToastContainer />
             </Box>

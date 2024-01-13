@@ -40,38 +40,38 @@ export default function ContactUsPopover() {
     return (
         <Box
             data-testid="contact-us-popover-container"
-            sx={contactUsContainerStyles}
+            sx={ contactUsContainerStyles }
         >
             <IconButton
                 data-testid="open-close"
-                aria-describedby={contactUsPopoverId}
-                onClick={handleOpenContactUsPopover}
+                aria-describedby={ contactUsPopoverId }
+                onClick={ handleOpenContactUsPopover }
                 color="inherit"
                 size="large"
-                sx={{ marginTop: "60px" }}
+                sx={ { marginTop: "60px" } }
             >
                 <img
                     src="1918043-200.png"
                     alt="Open contact us popover icon"
-                    style={contactUsPopoverImageStyles}
+                    style={ contactUsPopoverImageStyles }
                 />
             </IconButton>
             <Popover
-                id={contactUsPopoverId}
-                open={isPopoverOpen}
-                anchorEl={anchorEl}
-                onClose={handleCloseContactUsPopover}
-                anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
-                transformOrigin={transformOriginVerticalCenterHorizontalTop}
-                sx={contactUsPopoverContainerStyles}
+                id={ contactUsPopoverId }
+                open={ isPopoverOpen }
+                anchorEl={ anchorEl }
+                onClose={ handleCloseContactUsPopover }
+                anchorOrigin={ anchorOriginVerticalCenterHorizontalBottom }
+                transformOrigin={ transformOriginVerticalCenterHorizontalTop }
+                sx={ contactUsPopoverContainerStyles }
             >
                 <Typography
                     data-testid="paragraph"
-                    sx={contactUsTypographyStyles}
+                    sx={ contactUsTypographyStyles }
                 >
-                    {ARTIST}
+                    { ARTIST }
                 </Typography>
-                <Divider style={dividerStyles} />
+                <Divider style={ dividerStyles } />
                 <ContactUsForm />
             </Popover>
         </Box>
