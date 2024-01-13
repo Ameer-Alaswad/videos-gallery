@@ -18,4 +18,5 @@ export const textStyles = {
     textAlign: "center",
     fontWeight: "bold",
     color: "#000",
+    marginTop: "30px",
 };
