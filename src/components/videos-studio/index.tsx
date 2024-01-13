@@ -5,7 +5,7 @@ import { studioVideosData } from "../../assets";
 import VideoPlayer from "./display-video-modal/video";
 import {
     imgListItemStyles,
-    imgListMainBoxStyles,
+    imgListMainContainerStyles,
     imgListStyles,
 } from "./styles";
 
@@ -23,7 +23,7 @@ export default function VideosStudio() {
     };
 
     return (
-        <Box sx={imgListMainBoxStyles}>
+        <Box sx={imgListMainContainerStyles}>
             <ImageList sx={imgListStyles}>
                 {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem

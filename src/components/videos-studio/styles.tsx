@@ -38,11 +38,9 @@ export const imgListItemStyles = {
     margin: "10px",
 };
 
-export const imgListMainBoxStyles = {
+export const imgListMainContainerStyles = {
     width: "100%",
-    height: "1800px",
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
@@ -54,10 +52,10 @@ export const imgListMainBoxStyles = {
 };
 export const imgListStyles = {
     width: "750px",
-    padding: "60px",
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "start",
     flexWrap: "wrap",
+    overflow: "visible",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
         width: "500px",
         height: "2500px",
