@@ -22,6 +22,7 @@ export const headerContainerStyles = {
     color: "black",
     height: "90px",
     zIndex: "20000",
+    width: "100vw",
 };
 export const headerContentContainerStyles = {
     display: "flex",

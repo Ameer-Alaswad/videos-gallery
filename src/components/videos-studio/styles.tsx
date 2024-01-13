@@ -3,7 +3,7 @@ export const mainModalBoxStyles = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "400px",
     border: "none",
     "&:focus": {
         outline: "none",
@@ -50,8 +50,9 @@ export const imgListMainContainerStyles = {
         height: "5000px",
     },
 };
+
 export const imgListStyles = {
-    width: "750px",
+    width: "680px",
     display: "flex",
     justifyContent: "start",
     flexWrap: "wrap",
