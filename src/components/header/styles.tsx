@@ -21,8 +21,9 @@ export const headerContainerStyles = {
     backgroundColor: "white",
     color: "black",
     height: "90px",
-    zIndex: "20000",
     width: "100vw",
+    position: "relative",
+    zIndex: "10",
 };
 export const headerContentContainerStyles = {
     display: "flex",
@@ -40,7 +41,7 @@ export const contactUsPopoverFormStyles = {
 
 export const contactUsTypographyStyles = { p: 2, textAlign: "center" };
 
-export const contactUsPopoverContainerStyle = {
+export const contactUsContainerStyles = {
     display: "flex",
     width: "100%",
     justifyContent: "center",
@@ -56,4 +57,9 @@ export const contactUsPopoverMainContainerStyles = {
     "@media screen and (max-width: 480px)": {
         width: "400px",
     },
+};
+
+export const contactUsPopoverContainerStyles = {
+    zIndex: "0",
+    top: "-13px",
 };

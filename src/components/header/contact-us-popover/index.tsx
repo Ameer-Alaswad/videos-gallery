@@ -6,8 +6,9 @@ import ContactUsForm from "./contact-us-form";
 import { dividerStyles } from "../../footer/styles";
 import {
     contactUsTypographyStyles,
-    contactUsPopoverContainerStyle,
+    contactUsContainerStyles,
     contactUsPopoverImageStyles,
+    contactUsPopoverContainerStyles,
 } from "../styles";
 
 export default function ContactUsPopover() {
@@ -39,7 +40,7 @@ export default function ContactUsPopover() {
     return (
         <Box
             data-testid="contact-us-popover-container"
-            sx={contactUsPopoverContainerStyle}
+            sx={contactUsContainerStyles}
         >
             <IconButton
                 data-testid="open-close"
@@ -62,7 +63,7 @@ export default function ContactUsPopover() {
                 onClose={handleCloseContactUsPopover}
                 anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
                 transformOrigin={transformOriginVerticalCenterHorizontalTop}
-                sx={{ zIndex: "unset" }}
+                sx={contactUsPopoverContainerStyles}
             >
                 <Typography
                     data-testid="paragraph"
