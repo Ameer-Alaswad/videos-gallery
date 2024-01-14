@@ -1,3 +1,12 @@
 body {
     margin: 0;
 }
+
+@font-face {
+    font-family: "Caviar";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local("Caviar"), local("Caviar"),
+        url("./fonts/CaviarDreams.ttf") format("truetype");
+}

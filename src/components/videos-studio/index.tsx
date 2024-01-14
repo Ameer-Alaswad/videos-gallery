@@ -23,29 +23,29 @@ export default function VideosStudio() {
     };
 
     return (
-        <Box sx={imgListMainContainerStyles}>
-            <ImageList sx={imgListStyles}>
-                {studioVideosData.map(({ videoID, videoPath }) => (
+        <Box data-testid="image-list" sx={ imgListMainContainerStyles }>
+            <ImageList sx={ imgListStyles }>
+                { studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
-                        onClick={(event) => handleOpenVideo(event)}
-                        sx={imgListItemStyles}
-                        key={videoID}
+                        onClick={ (event) => handleOpenVideo(event) }
+                        sx={ imgListItemStyles }
+                        key={ videoID }
                     >
                         <VideoPlayer
-                            width={"200px"}
-                            height={"200px"}
-                            objectFit={"cover"}
-                            videoID={videoID}
-                            activeVideoId={activeVideoId}
-                            videoPath={videoPath}
-                            openVideo={openVideo}
+                            width={ "200px" }
+                            height={ "200px" }
+                            objectFit={ "cover" }
+                            videoID={ videoID }
+                            activeVideoId={ activeVideoId }
+                            videoPath={ videoPath }
+                            openVideo={ openVideo }
                         />
                     </ImageListItem>
-                ))}
+                )) }
                 <VideoPopupModal
-                    activeVideoId={activeVideoId}
-                    openVideo={openVideo}
-                    setOpenVideo={setOpenVideo}
+                    activeVideoId={ activeVideoId }
+                    openVideo={ openVideo }
+                    setOpenVideo={ setOpenVideo }
                 />
             </ImageList>
         </Box>

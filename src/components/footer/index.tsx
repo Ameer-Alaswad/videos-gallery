@@ -4,9 +4,9 @@ import { COPY_RIGHT } from "../../assets/text";
 
 const Footer: React.FC = () => {
     return (
-        <Box sx={footerMainBoxStyles}>
-            <Divider style={dividerStyles} />
-            <Typography sx={textStyles}>{COPY_RIGHT}</Typography>
+        <Box data-testid="footer" sx={ footerMainBoxStyles }>
+            <Divider style={ dividerStyles } />
+            <Typography sx={ textStyles }>{ COPY_RIGHT }</Typography>
         </Box>
     );
 };
