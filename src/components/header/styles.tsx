@@ -18,7 +18,6 @@ export const headerContainerStyles = {
     backgroundColor: "white",
     color: "black",
     height: "90px",
-    width: "100vw",
     position: "relative",
     zIndex: "10",
 };

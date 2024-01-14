@@ -11,20 +11,26 @@ import {
     contactUsPopoverContainerStyles,
 } from "../styles";
 
-export default function ContactUsPopover() {
-    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+interface contactUsPopoverProps {
+    contactUsPopoverAnchorEl: HTMLButtonElement | null;
+    setContactUsPopoverAnchorEl: (element: HTMLButtonElement | null) => void;
+}
 
+const ContactUsPopover = ({
+    contactUsPopoverAnchorEl,
+    setContactUsPopoverAnchorEl,
+}: contactUsPopoverProps) => {
     const handleOpenContactUsPopover = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
-        setAnchorEl(event.currentTarget);
+        setContactUsPopoverAnchorEl(event.currentTarget);
     };
 
     const handleCloseContactUsPopover = () => {
-        setAnchorEl(null);
+        setContactUsPopoverAnchorEl(null);
     };
 
-    const isPopoverOpen = Boolean(anchorEl);
+    const isPopoverOpen = Boolean(contactUsPopoverAnchorEl);
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
 
     const anchorOriginVerticalCenterHorizontalBottom = {
@@ -40,40 +46,42 @@ export default function ContactUsPopover() {
     return (
         <Box
             data-testid="contact-us-popover-container"
-            sx={ contactUsContainerStyles }
+            sx={contactUsContainerStyles}
         >
             <IconButton
                 data-testid="open-close"
-                aria-describedby={ contactUsPopoverId }
-                onClick={ handleOpenContactUsPopover }
+                aria-describedby={contactUsPopoverId}
+                onClick={handleOpenContactUsPopover}
                 color="inherit"
                 size="large"
-                sx={ { marginTop: "60px" } }
+                sx={{ marginTop: "60px" }}
             >
                 <img
                     src="1918043-200.png"
                     alt="Open contact us popover icon"
-                    style={ contactUsPopoverImageStyles }
+                    style={contactUsPopoverImageStyles}
                 />
             </IconButton>
             <Popover
-                id={ contactUsPopoverId }
-                open={ isPopoverOpen }
-                anchorEl={ anchorEl }
-                onClose={ handleCloseContactUsPopover }
-                anchorOrigin={ anchorOriginVerticalCenterHorizontalBottom }
-                transformOrigin={ transformOriginVerticalCenterHorizontalTop }
-                sx={ contactUsPopoverContainerStyles }
+                id={contactUsPopoverId}
+                open={isPopoverOpen}
+                anchorEl={contactUsPopoverAnchorEl}
+                onClose={handleCloseContactUsPopover}
+                anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
+                transformOrigin={transformOriginVerticalCenterHorizontalTop}
+                sx={contactUsPopoverContainerStyles}
             >
                 <Typography
                     data-testid="paragraph"
-                    sx={ contactUsTypographyStyles }
+                    sx={contactUsTypographyStyles}
                 >
-                    { ARTIST }
+                    {ARTIST}
                 </Typography>
-                <Divider style={ dividerStyles } />
+                <Divider style={dividerStyles} />
                 <ContactUsForm />
             </Popover>
         </Box>
     );
-}
+};
+
+export default ContactUsPopover;
