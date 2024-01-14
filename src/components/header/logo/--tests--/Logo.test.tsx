@@ -7,7 +7,6 @@ const logoImageStyles = {
     width: "60px",
     height: "60px",
     marginRight: "1px",
-    cursor: "pointer",
 };
 
 describe("Logo Component Rendering", () => {
