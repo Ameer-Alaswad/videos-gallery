@@ -6,14 +6,14 @@ import { headerContainerStyles, headerContentContainerStyles } from "./styles";
 import { useState } from "react";
 
 const Header = () => {
-    const [contactUsPopoverAnchorEl, setContactUsPopoverAnchorEl] =
+    const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
         useState<HTMLButtonElement | null>(null);
 
     return (
         <AppBar
             data-testid="app-bar"
             sx={
-                contactUsPopoverAnchorEl
+                openContactUSPopoverButton
                     ? { ...headerContainerStyles, width: "100vw" }
                     : headerContainerStyles
             }
@@ -25,8 +25,10 @@ const Header = () => {
             >
                 <Logo />
                 <ContactUsPopover
-                    contactUsPopoverAnchorEl={contactUsPopoverAnchorEl}
-                    setContactUsPopoverAnchorEl={setContactUsPopoverAnchorEl}
+                    openContactUSPopoverButton={openContactUSPopoverButton}
+                    setOpenContactUSPopoverButton={
+                        setOpenContactUSPopoverButton
+                    }
                 />
                 <ToInstagramLink />
             </Box>

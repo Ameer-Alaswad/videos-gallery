@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography";
 import { IconButton, Box, Popover, Divider } from "@mui/material";
 import { useState } from "react";
-import { ARTIST } from "../../../assets/text";
+import { CONTACT_US_FORM_OWNER_NAME } from "../../../assets/text";
 import ContactUsForm from "./contact-us-form";
 import { dividerStyles } from "../../footer/styles";
 import {
@@ -12,25 +12,25 @@ import {
 } from "../styles";
 
 interface contactUsPopoverProps {
-    contactUsPopoverAnchorEl: HTMLButtonElement | null;
-    setContactUsPopoverAnchorEl: (element: HTMLButtonElement | null) => void;
+    openContactUSPopoverButton: HTMLButtonElement | null;
+    setOpenContactUSPopoverButton: (element: HTMLButtonElement | null) => void;
 }
 
 const ContactUsPopover = ({
-    contactUsPopoverAnchorEl,
-    setContactUsPopoverAnchorEl,
+    openContactUSPopoverButton,
+    setOpenContactUSPopoverButton,
 }: contactUsPopoverProps) => {
     const handleOpenContactUsPopover = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
-        setContactUsPopoverAnchorEl(event.currentTarget);
+        setOpenContactUSPopoverButton(event.currentTarget);
     };
 
     const handleCloseContactUsPopover = () => {
-        setContactUsPopoverAnchorEl(null);
+        setOpenContactUSPopoverButton(null);
     };
 
-    const isPopoverOpen = Boolean(contactUsPopoverAnchorEl);
+    const isPopoverOpen = Boolean(openContactUSPopoverButton);
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
 
     const anchorOriginVerticalCenterHorizontalBottom = {
@@ -49,7 +49,7 @@ const ContactUsPopover = ({
             sx={contactUsContainerStyles}
         >
             <IconButton
-                data-testid="open-close"
+                data-testid="open-close-contact-us-popover"
                 aria-describedby={contactUsPopoverId}
                 onClick={handleOpenContactUsPopover}
                 color="inherit"
@@ -65,19 +65,19 @@ const ContactUsPopover = ({
             <Popover
                 id={contactUsPopoverId}
                 open={isPopoverOpen}
-                anchorEl={contactUsPopoverAnchorEl}
+                anchorEl={openContactUSPopoverButton}
                 onClose={handleCloseContactUsPopover}
                 anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
                 transformOrigin={transformOriginVerticalCenterHorizontalTop}
                 sx={contactUsPopoverContainerStyles}
             >
                 <Typography
-                    data-testid="paragraph"
+                    data-testid="contact-us-form-owner-name"
                     sx={contactUsTypographyStyles}
                 >
-                    {ARTIST}
+                    {CONTACT_US_FORM_OWNER_NAME}
                 </Typography>
-                <Divider style={dividerStyles} />
+                <Divider sx={dividerStyles} />
                 <ContactUsForm />
             </Popover>
         </Box>
