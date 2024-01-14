@@ -3,12 +3,20 @@ import ContactUsPopover from "./contact-us-popover";
 import ToInstagramLink from "./to-instagram-link";
 import Logo from "./logo";
 import { headerContainerStyles, headerContentContainerStyles } from "./styles";
+import { useState } from "react";
 
 const Header = () => {
+    const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
+        useState<HTMLButtonElement | null>(null);
+
     return (
         <AppBar
             data-testid="app-bar"
-            sx={headerContainerStyles}
+            sx={
+                openContactUSPopoverButton
+                    ? { ...headerContainerStyles, width: "100vw" }
+                    : headerContainerStyles
+            }
             position="static"
         >
             <Box
@@ -16,7 +24,12 @@ const Header = () => {
                 sx={headerContentContainerStyles}
             >
                 <Logo />
-                <ContactUsPopover />
+                <ContactUsPopover
+                    openContactUSPopoverButton={openContactUSPopoverButton}
+                    setOpenContactUSPopoverButton={
+                        setOpenContactUSPopoverButton
+                    }
+                />
                 <ToInstagramLink />
             </Box>
         </AppBar>
