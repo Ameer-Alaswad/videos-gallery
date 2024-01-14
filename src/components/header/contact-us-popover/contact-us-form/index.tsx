@@ -8,8 +8,7 @@ import {
     contactUsFormContainerStyles,
 } from "../../styles";
 import { TextareaAutosize } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { INVALID_MESSAGE } from "../../../../assets/text.tsx";
 import { containsLink, sendUserFeedback } from "../../../../utils/utils.tsx";
 import { styled } from "@mui/system";
@@ -38,23 +37,23 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box sx={contactUsPopoverMainContainerStyles}>
+        <Box sx={ contactUsPopoverMainContainerStyles }>
             <Box
-                ref={contactUsFormRef}
-                onSubmit={sendEmail}
+                ref={ contactUsFormRef }
+                onSubmit={ sendEmail }
                 component="form"
-                sx={contactUsFormContainerStyles}
+                sx={ contactUsFormContainerStyles }
             >
                 <InputLabel
                     htmlFor="contactUsMessage"
-                    sx={contactUsPopoverFormStyles}
+                    sx={ contactUsPopoverFormStyles }
                 >
-                    {MESSAGE}
+                    { MESSAGE }
                 </InputLabel>
                 <StyledTextarea
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={3}
+                    minRows={ 3 }
                     required
                 />
                 <Button
@@ -62,11 +61,10 @@ const ContactUsForm = () => {
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={contactUsPopoverButtonStyles}
+                    sx={ contactUsPopoverButtonStyles }
                 >
-                    {SEND}
+                    { SEND }
                 </Button>
-                <ToastContainer />
             </Box>
         </Box>
     );
