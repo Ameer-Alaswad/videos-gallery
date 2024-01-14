@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import { IconButton, Box, Popover, Divider } from "@mui/material";
-import { useState } from "react";
 import { CONTACT_US_FORM_OWNER_NAME } from "../../../assets/text";
 import ContactUsForm from "./contact-us-form";
 import { dividerStyles } from "../../footer/styles";
