@@ -18,6 +18,14 @@ To run the project locally, follow these simple steps:
 
 This will launch the website locally. Open your browser and navigate to the provided address (usually [http://localhost:3000](http://localhost:3000) or another port specified by Vite) to view the application.
 
+## Running Tests
+
+We've fortified the project with unit tests using Jest and bolstered overall reliability with integration testing using Jest and React-Testing-Liabrary. To run the tests, use the following command:
+
+```bash
+npm run test
+```
+
 ## Tech Stack
 
 This project is built with a modern and robust tech stack, featuring:
