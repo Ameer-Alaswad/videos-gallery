@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project was a collaborative effort, developed in partnership with mouhamadx92x. Together, we worked on bringing the vision to life, combining our skills to create this Interior Designer's Projects Gallery.
+Frontend Project, was a collaborative effort, developed in partnership with mouhamadx92x. Together, we worked on bringing the vision to life, combining our skills to create this Interior Designer's Projects Gallery.
 
 ## Deployed Website
 
@@ -14,7 +14,8 @@ To run the project locally, follow these simple steps:
 
 1. Clone the repository to your local machine.
 2. In the root folder, run `npm install` to install the dependencies.
-3. Run `npm run dev` to start the frontend server.
+3. Ensure the inclusion of the `.env` file in the project root. Kindly request the necessary environment variables from one of us privately and add them to the `.env` file. This step is crucial for successful form submissions.
+4. Run `npm run dev` to start the frontend server.
 
 This will launch the website locally. Open your browser and navigate to the provided address (usually [http://localhost:3000](http://localhost:3000) or another port specified by Vite) to view the application.
 
