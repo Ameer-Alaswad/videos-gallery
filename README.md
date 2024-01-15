@@ -1,8 +1,8 @@
-# Videos Gallery
+# Videos Gallery (Freelance)
 
 ## Introduction
 
-Welcome to the Videos Gallery a set of Artistic Motion Graphics, Immerse yourself in a mesmerizing collection of motion graphics videos, each a masterpiece designed by talented artist. Experience the synergy of architectural concepts and artistic expression brought to life through dynamic visuals.
+This project was a collaborative effort, developed in partnership with [Friend's Name]. Together, we worked on bringing the vision to life, combining our skills to create this Interior Designer's Project Gallery
 
 ## Deployed Website
 
