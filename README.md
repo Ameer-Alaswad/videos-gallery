@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project was a collaborative effort, developed in partnership with [Friend's Name]. Together, we worked on bringing the vision to life, combining our skills to create this Interior Designer's Project Gallery
+This project was a collaborative effort, developed in partnership with mouhamadx92x. Together, we worked on bringing the vision to life, combining our skills to create this Interior Designer's Projects Gallery.
 
 ## Deployed Website
 
