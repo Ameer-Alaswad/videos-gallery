@@ -18,18 +18,19 @@ export default function VideosStudio() {
     ) => {
         const targetElement = event.target as HTMLElement;
         const selectedVideoElement = targetElement.firstChild as HTMLElement;
-        setActiveVideoId(selectedVideoElement.id);
+        setActiveVideoId(selectedVideoElement?.id);
         setOpenVideo(true);
     };
 
     return (
-        <Box data-testid="image-list" sx={ imgListMainContainerStyles }>
-            <ImageList sx={ imgListStyles }>
+        <Box data-testid="videos-list-main-container" sx={ imgListMainContainerStyles }>
+            <ImageList data-testid="videos-list-container" sx={ imgListStyles }>
                 { studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
                         onClick={ (event) => handleOpenVideo(event) }
                         sx={ imgListItemStyles }
                         key={ videoID }
+                        data-testid="displayed-video-item"
                     >
                         <VideoPlayer
                             width={ "200px" }
