@@ -17,6 +17,7 @@ const StyledTextarea = styled(TextareaAutosize)(() => ({
     borderRadius: "8px",
     color: "black",
     padding: "25px",
+    resize: "none",
 }));
 const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
@@ -37,23 +38,23 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box sx={ contactUsPopoverMainContainerStyles }>
+        <Box sx={contactUsPopoverMainContainerStyles}>
             <Box
-                ref={ contactUsFormRef }
-                onSubmit={ sendEmail }
+                ref={contactUsFormRef}
+                onSubmit={sendEmail}
                 component="form"
-                sx={ contactUsFormContainerStyles }
+                sx={contactUsFormContainerStyles}
             >
                 <InputLabel
                     htmlFor="contactUsMessage"
-                    sx={ contactUsPopoverFormStyles }
+                    sx={contactUsPopoverFormStyles}
                 >
-                    { MESSAGE }
+                    {MESSAGE}
                 </InputLabel>
                 <StyledTextarea
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={ 3 }
+                    minRows={3}
                     required
                 />
                 <Button
@@ -61,9 +62,9 @@ const ContactUsForm = () => {
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={ contactUsPopoverButtonStyles }
+                    sx={contactUsPopoverButtonStyles}
                 >
-                    { SEND }
+                    {SEND}
                 </Button>
             </Box>
         </Box>
