@@ -22,7 +22,7 @@ describe("VideoPopupModal Component", () => {
         expect(videoPopupModal).toBeNull();
 
         fireEvent.click(screen.getAllByTestId("1")[0]);
-        expect(screen.getByTestId("video-popup-modal")).toBeInTheDocument();
+        expect(screen.queryByTestId("video-popup-modal")).toBeInTheDocument();
         const mainModalContainer = screen.getByTestId("main-modal-container");
         expect(mainModalContainer).toBeInTheDocument();
 

@@ -27,6 +27,6 @@ describe('VideosStudio Component renders', () => {
 
         fireEvent.click(screen.getAllByTestId("1")[0]);
 
-        expect(screen.getByTestId('video-popup-modal')).toBeInTheDocument();
+        expect(screen.queryByTestId('video-popup-modal')).toBeInTheDocument();
     });
 });
