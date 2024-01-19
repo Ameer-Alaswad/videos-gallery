@@ -12,7 +12,8 @@ export const contactUsPopoverTextAreaStyles = {
 export const contactUsPopoverButtonStyles = {
     border: "none",
     background: "none",
-    color: "black",
+    color: "#2d2d2d",
+    fontWeight: "bold",
 };
 export const headerContainerStyles = {
     backgroundColor: "white",
@@ -32,8 +33,15 @@ export const headerContentContainerStyles = {
 export const contactUsPopoverFormStyles = {
     textAlign: "center",
     padding: "10px",
+    color: "#2d2d2d",
+    fontWeight: "bold",
 };
-export const contactUsTypographyStyles = { p: 2, textAlign: "center" };
+export const contactUsTypographyStyles = {
+    p: 2,
+    textAlign: "center",
+    color: "#2d2d2d",
+    fontWeight: "bold",
+};
 export const contactUsContainerStyles = {
     display: "flex",
     width: "100%",

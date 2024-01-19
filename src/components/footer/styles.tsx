@@ -16,7 +16,7 @@ export const dividerStyles = {
 
 export const textStyles = {
     textAlign: "center",
+    color: "#2d2d2d",
     fontWeight: "bold",
-    color: "#000",
     marginTop: "30px",
 };
