@@ -9,6 +9,7 @@ import {
     contactUsPopoverImageStyles,
     contactUsPopoverContainerStyles,
 } from "../styles";
+import { useState } from "react";
 
 interface contactUsPopoverProps {
     openContactUSPopoverButton: HTMLButtonElement | null;
@@ -19,17 +20,21 @@ const ContactUsPopover = ({
     openContactUSPopoverButton,
     setOpenContactUSPopoverButton,
 }: contactUsPopoverProps) => {
+    const [openAndClosePopover, setOpenAndClosePopover] = useState(false);
+
     const handleOpenContactUsPopover = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
         setOpenContactUSPopoverButton(event.currentTarget);
+        setOpenAndClosePopover(!openAndClosePopover);
     };
 
     const handleCloseContactUsPopover = () => {
         setOpenContactUSPopoverButton(null);
+        setOpenAndClosePopover(false);
     };
 
-    const isPopoverOpen = Boolean(openContactUSPopoverButton);
+    const isPopoverOpen = Boolean(openAndClosePopover);
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
 
     const anchorOriginVerticalCenterHorizontalBottom = {
