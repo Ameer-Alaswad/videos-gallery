@@ -31,7 +31,7 @@ export const linkToInstagramStyles = {
 
 export const imgListItemStyles = {
     ":hover": {
-        transform: "scale(1.5)",
+        transform: "scale(1.3)",
         zIndex: "10000",
         transition: "transform 0.7s",
     },
