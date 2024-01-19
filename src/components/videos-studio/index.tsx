@@ -29,7 +29,18 @@ export default function VideosStudio() {
                 {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpenVideo(event)}
-                        sx={imgListItemStyles}
+                        sx={
+                            openVideo
+                                ? imgListItemStyles
+                                : {
+                                      ...imgListItemStyles,
+                                      ":hover": {
+                                          transform: "scale(1.3)",
+                                          zIndex: "10000",
+                                          transition: "transform 0.7s",
+                                      },
+                                  }
+                        }
                         key={videoID}
                     >
                         <VideoPlayer
