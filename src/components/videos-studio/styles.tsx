@@ -47,9 +47,9 @@ export const imgListStyles = {
     flexWrap: "wrap",
     overflow: "visible",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
-        width: "450px",
+        width: "445px",
     },
     "@media screen and (max-width: 480px)": {
-        width: "200px",
+        width: "220px",
     },
 };
