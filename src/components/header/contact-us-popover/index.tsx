@@ -11,15 +11,10 @@ import {
 } from "../styles";
 import { useState } from "react";
 
-interface contactUsPopoverProps {
-    openContactUSPopoverButton: HTMLButtonElement | null;
-    setOpenContactUSPopoverButton: (element: HTMLButtonElement | null) => void;
-}
+const ContactUsPopover = () => {
+    const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
+        useState<HTMLButtonElement | null>(null);
 
-const ContactUsPopover = ({
-    openContactUSPopoverButton,
-    setOpenContactUSPopoverButton,
-}: contactUsPopoverProps) => {
     const [openAndClosePopover, setOpenAndClosePopover] = useState(false);
 
     const handleOpenContactUsPopover = (
@@ -74,6 +69,7 @@ const ContactUsPopover = ({
                 anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
                 transformOrigin={transformOriginVerticalCenterHorizontalTop}
                 sx={contactUsPopoverContainerStyles}
+                disableScrollLock
             >
                 <Typography
                     data-testid="contact-us-form-owner-name"

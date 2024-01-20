@@ -27,8 +27,8 @@ export const headerContentContainerStyles = {
     justifyContent: "center",
     width: "300px",
     alignItems: "center",
-    margin: "0 auto",
     height: "100%",
+    alignSelf: "center",
 };
 export const contactUsPopoverFormStyles = {
     textAlign: "center",
