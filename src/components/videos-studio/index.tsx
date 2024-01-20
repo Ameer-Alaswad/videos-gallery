@@ -37,7 +37,6 @@ export default function VideosStudio() {
                                       ":hover": {
                                           transform: "scale(1.3)",
                                           zIndex: "10000",
-                                          transition: "transform 0.7s",
                                       },
                                   }
                         }

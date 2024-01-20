@@ -31,6 +31,7 @@ export const linkToInstagramStyles = {
 
 export const imgListItemStyles = {
     margin: "10px",
+    transition: "transform 0.4s",
 };
 
 export const imgListMainContainerStyles = {
