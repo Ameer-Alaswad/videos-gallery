@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { styled } from "@mui/system";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-
+import NorthIcon from "@mui/icons-material/North";
 const ScrollToTopButton = () => {
     const [scrollUpButtonIsVisible, setScrollUpButtonIsVisible] =
         useState(false);
@@ -40,6 +39,7 @@ const ScrollToTopButton = () => {
         borderRadius: "5px",
         padding: "10px",
         cursor: "pointer",
+        height: "60px",
     });
 
     return (
@@ -47,7 +47,7 @@ const ScrollToTopButton = () => {
             onClick={scrollToTop}
             style={{ display: scrollUpButtonIsVisible ? "block" : "none" }}
         >
-            <ArrowUpwardIcon />
+            <NorthIcon fontSize="large" />
         </StyledButton>
     );
 };
