@@ -55,12 +55,15 @@ export const contactUsPopoverImageStyles = {
 export const contactUsPopoverMainContainerStyles = {
     width: "500px",
     "@media screen and (max-width: 500px)": {
-        width: "90vw",
+        width: "85vw",
     },
 };
 export const contactUsPopoverContainerStyles = {
     zIndex: "0",
     top: "-13px",
+    "@media screen and (min-width: 375px) and (max-width: 500px)": {
+        left: "6px",
+    },
 };
 
 export const contactUsFormContainerStyles = {
