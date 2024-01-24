@@ -15,21 +15,20 @@ const ContactUsPopover = () => {
     const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
         useState<HTMLButtonElement | null>(null);
 
-    const [openAndClosePopover, setOpenAndClosePopover] = useState(false);
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
     const handleOpenContactUsPopover = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
         setOpenContactUSPopoverButton(event.currentTarget);
-        setOpenAndClosePopover(!openAndClosePopover);
+        setIsPopoverOpen(!isPopoverOpen);
     };
 
     const handleCloseContactUsPopover = () => {
         setOpenContactUSPopoverButton(null);
-        setOpenAndClosePopover(false);
+        setIsPopoverOpen(false);
     };
 
-    const isPopoverOpen = Boolean(openAndClosePopover);
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
 
     const anchorOriginVerticalCenterHorizontalBottom = {
