@@ -9,6 +9,7 @@ import {
     imgListStyles,
 } from "./styles";
 import ScrollToTopButton from "./scroll-up-button";
+import { generateImageListItemStyles } from "../../utils/utils";
 
 export default function VideosStudio() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
@@ -29,17 +30,7 @@ export default function VideosStudio() {
                 {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpenVideo(event)}
-                        sx={
-                            openVideo
-                                ? imgListItemStyles
-                                : {
-                                      ...imgListItemStyles,
-                                      ":hover": {
-                                          transform: "scale(1.3)",
-                                          zIndex: "10000",
-                                      },
-                                  }
-                        }
+                        sx={generateImageListItemStyles(openVideo)}
                         key={videoID}
                     >
                         <VideoPlayer
