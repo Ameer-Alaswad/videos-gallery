@@ -38,20 +38,26 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box sx={contactUsPopoverMainContainerStyles}>
+        <Box
+            sx={contactUsPopoverMainContainerStyles}
+            data-testid="contact-us-form-main-box"
+        >
             <Box
+                data-testid="contact-us-form"
                 ref={contactUsFormRef}
                 onSubmit={sendEmail}
                 component="form"
                 sx={contactUsFormContainerStyles}
             >
                 <InputLabel
+                    data-testid="contact-us-form-text-area-label"
                     htmlFor="contactUsMessage"
                     sx={contactUsPopoverFormStyles}
                 >
                     {MESSAGE}
                 </InputLabel>
                 <StyledTextarea
+                    data-testid="contact-us-form-text-area"
                     id="contactUsMessage"
                     name="contactUsMessage"
                     minRows={3}
