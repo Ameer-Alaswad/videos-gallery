@@ -10,6 +10,10 @@ import {
     contactUsPopoverContainerStyles,
 } from "../styles";
 import { useState } from "react";
+import {
+    anchorOriginVerticalCenterHorizontalBottom,
+    transformOriginVerticalCenterHorizontalTop,
+} from "../../../assets/constants.tsx";
 
 const ContactUsPopover = () => {
     const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
@@ -30,16 +34,6 @@ const ContactUsPopover = () => {
     };
 
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
-
-    const anchorOriginVerticalCenterHorizontalBottom = {
-        vertical: "bottom" as const,
-        horizontal: "center" as const,
-    };
-
-    const transformOriginVerticalCenterHorizontalTop = {
-        vertical: "top" as const,
-        horizontal: "center" as const,
-    };
 
     return (
         <Box
