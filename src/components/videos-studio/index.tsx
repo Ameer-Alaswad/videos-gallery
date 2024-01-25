@@ -3,11 +3,7 @@ import { useState } from "react";
 import VideoPopupModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
 import VideoPlayer from "./display-video-modal/video";
-import {
-    imgListItemStyles,
-    imgListMainContainerStyles,
-    imgListStyles,
-} from "./styles";
+import { imgListMainContainerStyles, imgListStyles } from "./styles";
 import ScrollToTopButton from "./scroll-up-button";
 import { generateImageListItemStyles } from "../../utils/utils";
 

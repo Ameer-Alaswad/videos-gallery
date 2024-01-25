@@ -45,7 +45,7 @@ const ScrollToTopButton = () => {
     return (
         <StyledButton
             onClick={scrollToTop}
-            style={{ display: scrollUpButtonIsVisible ? "block" : "none" }}
+            sx={{ display: scrollUpButtonIsVisible ? "block" : "none" }}
         >
             <NorthIcon fontSize="large" />
         </StyledButton>
