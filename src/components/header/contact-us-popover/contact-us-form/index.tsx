@@ -8,9 +8,7 @@ import {
     contactUsFormContainerStyles,
 } from "../../styles";
 import { TextareaAutosize } from "@mui/material";
-import { toast } from "react-toastify";
-import { INVALID_MESSAGE } from "../../../../assets/text.tsx";
-import { containsLink, sendUserFeedback } from "../../../../utils/utils.tsx";
+import { sendEmail } from "../../../../utils/utils.tsx";
 import { styled } from "@mui/system";
 const StyledTextarea = styled(TextareaAutosize)(() => ({
     width: "80%",
@@ -19,21 +17,15 @@ const StyledTextarea = styled(TextareaAutosize)(() => ({
     padding: "25px",
     resize: "none",
 }));
+
 const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
-    const sendEmail = (event: FormEvent) => {
-        event.preventDefault();
 
+    const sendEmailHandler = (event: FormEvent) => {
+        event.preventDefault();
         const contactUsFormElement = contactUsFormRef.current;
         if (contactUsFormElement) {
-            const userFeedback =
-                contactUsFormElement.contactUsMessage.value.trim();
-            if (containsLink(userFeedback)) {
-                toast(INVALID_MESSAGE);
-                return;
-            }
-
-            sendUserFeedback(contactUsFormElement);
+            sendEmail(contactUsFormElement);
         }
     };
 
@@ -45,7 +37,7 @@ const ContactUsForm = () => {
             <Box
                 data-testid="contact-us-form"
                 ref={contactUsFormRef}
-                onSubmit={sendEmail}
+                onSubmit={sendEmailHandler}
                 component="form"
                 sx={contactUsFormContainerStyles}
             >
