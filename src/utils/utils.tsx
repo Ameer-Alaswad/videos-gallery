@@ -3,9 +3,9 @@ import emailjs, { EmailJSResponseStatus } from "emailjs-com";
 import { toast } from "react-toastify";
 import { imgListItemStyles } from "../components/videos-studio/styles.tsx";
 
-const serviceId = import.meta.env.VITE_SERVICE_ID as string;
-const templateId = import.meta.env.VITE_TEMPLATE_ID as string;
-const publicKey = import.meta.env.VITE_PUBLIC_KEY as string;
+const serviceId = import.meta.env?.VITE_SERVICE_ID as string;
+const templateId = import.meta.env?.VITE_TEMPLATE_ID as string;
+const publicKey = import.meta.env?.VITE_PUBLIC_KEY as string;
 
 export const sendEmail = (contactUsFormElement: HTMLFormElement) => {
     const userFeedback = contactUsFormElement.contactUsMessage.value.trim();
