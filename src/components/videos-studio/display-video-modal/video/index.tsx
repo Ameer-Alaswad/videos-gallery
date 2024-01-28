@@ -29,8 +29,8 @@ const VideoPlayer = ({
     const isNotMuted = activeVideoId === videoID && openVideo ? false : true;
 
     return (
-        <video style={videoStyles} autoPlay loop muted={isNotMuted}>
-            <source id={videoID} src={`${videoPath}`} type="video/mp4" />
+        <video data-testid={ videoID } style={ videoStyles } autoPlay loop muted={ isNotMuted }>
+            <source id={ videoID } src={ `${videoPath}` } type="video/mp4" />
         </video>
     );
 };

@@ -30,30 +30,32 @@ const VideoPopupModal: React.FC<VideoPopupModalProps> = ({
     }
     return (
         <Modal
-            open={openVideo}
-            onClose={handleCloseVideo}
+            open={ openVideo }
+            onClose={ handleCloseVideo }
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
+            data-testid="video-popup-modal"
         >
-            <Box sx={mainModalBoxStyles}>
+            <Box sx={ mainModalBoxStyles }>
                 <Box
-                    sx={{
+                    data-testid="main-modal-container"
+                    sx={ {
                         position: "relative",
-                    }}
-                    onMouseEnter={() => setInstagramIconVisible(true)}
-                    onMouseLeave={() => setInstagramIconVisible(false)}
+                    } }
+                    onMouseEnter={ () => setInstagramIconVisible(true) }
+                    onMouseLeave={ () => setInstagramIconVisible(false) }
                 >
                     <VideoPlayer
-                        videoID={activeVideo.videoID}
-                        videoPath={activeVideo.videoPath}
-                        openVideo={openVideo}
+                        videoID={ activeVideo.videoID }
+                        videoPath={ activeVideo.videoPath }
+                        openVideo={ openVideo }
                     />
 
-                    {instagramIconVisible && (
+                    { instagramIconVisible && (
                         <InstagramLink
-                            instagramLink={activeVideo.instagramLink}
+                            instagramLink={ activeVideo.instagramLink }
                         />
-                    )}
+                    ) }
                 </Box>
             </Box>
         </Modal>
