@@ -3,12 +3,9 @@ import { useState } from "react";
 import VideoPopupModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
 import VideoPlayer from "./display-video-modal/video";
-import {
-    imgListItemStyles,
-    imgListMainContainerStyles,
-    imgListStyles,
-} from "./styles";
+import { imgListMainContainerStyles, imgListStyles } from "./styles";
 import ScrollToTopButton from "./scroll-up-button";
+import { generateImageListItemStyles } from "../../utils/utils";
 
 export default function VideosStudio() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
@@ -32,7 +29,7 @@ export default function VideosStudio() {
                 {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
                         onClick={(event) => handleOpenVideo(event)}
-                        sx={imgListItemStyles}
+                        sx={generateImageListItemStyles(openVideo)}
                         key={videoID}
                         data-testid="displayed-video-item"
                     >
