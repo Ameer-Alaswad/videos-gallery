@@ -3,9 +3,12 @@ import { useState } from "react";
 import VideoPopupModal from "./display-video-modal";
 import { studioVideosData } from "../../assets";
 import VideoPlayer from "./display-video-modal/video";
-import { imgListMainContainerStyles, imgListStyles } from "./styles";
+import {
+    imgListItemStyles,
+    imgListMainContainerStyles,
+    imgListStyles,
+} from "./styles";
 import ScrollToTopButton from "./scroll-up-button";
-import { generateImageListItemStyles } from "../../utils/utils";
 
 export default function VideosStudio() {
     const [openVideo, setOpenVideo] = useState<boolean>(false);
@@ -21,15 +24,17 @@ export default function VideosStudio() {
     };
 
     return (
-        <Box data-testid="videos-list-main-container" sx={ imgListMainContainerStyles }>
-            <ImageList data-testid="videos-list-container" sx={ imgListStyles }>
-                { studioVideosData.map(({ videoID, videoPath }) => (
+        <Box
+            data-testid="videos-list-main-container"
+            sx={imgListMainContainerStyles}
+        >
+            <ImageList data-testid="videos-list-container" sx={imgListStyles}>
+                {studioVideosData.map(({ videoID, videoPath }) => (
                     <ImageListItem
-                        onClick={ (event) => handleOpenVideo(event) }
-                        sx={ imgListItemStyles }
-                        key={ videoID }
+                        onClick={(event) => handleOpenVideo(event)}
+                        sx={imgListItemStyles}
+                        key={videoID}
                         data-testid="displayed-video-item"
-
                     >
                         <VideoPlayer
                             width={"200px"}
