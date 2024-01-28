@@ -1,7 +1,6 @@
 import { Link } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-
-const toInstagramStyles = { fontSize: 60, marginLeft: 1 };
+import { toInstagramStyles } from "./styles";
 
 const ToInstagramLink = () => {
     return (
@@ -14,7 +13,10 @@ const ToInstagramLink = () => {
                 underline="none"
                 target="_blank"
             >
-                <InstagramIcon data-testid="to-instagram-icon" sx={ toInstagramStyles } />
+                <InstagramIcon
+                    data-testid="to-instagram-icon"
+                    sx={toInstagramStyles}
+                />
             </Link>
         </>
     );

@@ -30,12 +30,8 @@ export const linkToInstagramStyles = {
 };
 
 export const imgListItemStyles = {
-    ":hover": {
-        transform: "scale(1.5)",
-        zIndex: "10000",
-        transition: "transform 0.7s",
-    },
     margin: "10px",
+    transition: "transform 0.4s",
 };
 
 export const imgListMainContainerStyles = {
@@ -52,9 +48,9 @@ export const imgListStyles = {
     flexWrap: "wrap",
     overflow: "visible",
     "@media screen and (min-width: 481px) and (max-width: 767px)": {
-        width: "450px",
+        width: "445px",
     },
     "@media screen and (max-width: 480px)": {
-        width: "200px",
+        width: "220px",
     },
 };

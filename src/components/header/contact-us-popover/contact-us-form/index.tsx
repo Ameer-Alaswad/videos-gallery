@@ -8,52 +8,51 @@ import {
     contactUsFormContainerStyles,
 } from "../../styles";
 import { TextareaAutosize } from "@mui/material";
-import { toast } from "react-toastify";
-import { INVALID_MESSAGE } from "../../../../assets/text.tsx";
-import { containsLink, sendUserFeedback } from "../../../../utils/utils.tsx";
+import { sendEmail } from "../../../../utils/utils.tsx";
 import { styled } from "@mui/system";
 const StyledTextarea = styled(TextareaAutosize)(() => ({
     width: "80%",
     borderRadius: "8px",
     color: "black",
     padding: "25px",
+    resize: "none",
 }));
+
 const ContactUsForm = () => {
     const contactUsFormRef = useRef<HTMLFormElement>(null);
-    const sendEmail = (event: FormEvent) => {
-        event.preventDefault();
 
+    const sendEmailHandler = (event: FormEvent) => {
+        event.preventDefault();
         const contactUsFormElement = contactUsFormRef.current;
         if (contactUsFormElement) {
-            const userFeedback =
-                contactUsFormElement.contactUsMessage.value.trim();
-            if (containsLink(userFeedback)) {
-                toast(INVALID_MESSAGE);
-                return;
-            }
-
-            sendUserFeedback(contactUsFormElement);
+            sendEmail(contactUsFormElement);
         }
     };
 
     return (
-        <Box sx={ contactUsPopoverMainContainerStyles }>
+        <Box
+            sx={contactUsPopoverMainContainerStyles}
+            data-testid="contact-us-form-main-box"
+        >
             <Box
-                ref={ contactUsFormRef }
-                onSubmit={ sendEmail }
+                data-testid="contact-us-form"
+                ref={contactUsFormRef}
+                onSubmit={sendEmailHandler}
                 component="form"
-                sx={ contactUsFormContainerStyles }
+                sx={contactUsFormContainerStyles}
             >
                 <InputLabel
+                    data-testid="contact-us-form-text-area-label"
                     htmlFor="contactUsMessage"
-                    sx={ contactUsPopoverFormStyles }
+                    sx={contactUsPopoverFormStyles}
                 >
-                    { MESSAGE }
+                    {MESSAGE}
                 </InputLabel>
                 <StyledTextarea
+                    data-testid="contact-us-form-text-area"
                     id="contactUsMessage"
                     name="contactUsMessage"
-                    minRows={ 3 }
+                    minRows={3}
                     required
                 />
                 <Button
@@ -61,9 +60,9 @@ const ContactUsForm = () => {
                     type="submit"
                     variant="text"
                     color="inherit"
-                    sx={ contactUsPopoverButtonStyles }
+                    sx={contactUsPopoverButtonStyles}
                 >
-                    { SEND }
+                    {SEND}
                 </Button>
             </Box>
         </Box>

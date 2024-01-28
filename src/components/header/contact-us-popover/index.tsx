@@ -9,38 +9,31 @@ import {
     contactUsPopoverImageStyles,
     contactUsPopoverContainerStyles,
 } from "../styles";
+import { useState } from "react";
+import {
+    anchorOriginVerticalCenterHorizontalBottom,
+    transformOriginVerticalCenterHorizontalTop,
+} from "../../../assets/constants.tsx";
 
-interface contactUsPopoverProps {
-    openContactUSPopoverButton: HTMLButtonElement | null;
-    setOpenContactUSPopoverButton: (element: HTMLButtonElement | null) => void;
-}
+const ContactUsPopover = () => {
+    const [openContactUSPopoverButton, setOpenContactUSPopoverButton] =
+        useState<HTMLButtonElement | null>(null);
 
-const ContactUsPopover = ({
-    openContactUSPopoverButton,
-    setOpenContactUSPopoverButton,
-}: contactUsPopoverProps) => {
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
     const handleOpenContactUsPopover = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
         setOpenContactUSPopoverButton(event.currentTarget);
+        setIsPopoverOpen(!isPopoverOpen);
     };
 
     const handleCloseContactUsPopover = () => {
         setOpenContactUSPopoverButton(null);
+        setIsPopoverOpen(false);
     };
 
-    const isPopoverOpen = Boolean(openContactUSPopoverButton);
     const contactUsPopoverId = isPopoverOpen ? "simple-popover" : undefined;
-
-    const anchorOriginVerticalCenterHorizontalBottom = {
-        vertical: "bottom" as const,
-        horizontal: "center" as const,
-    };
-
-    const transformOriginVerticalCenterHorizontalTop = {
-        vertical: "top" as const,
-        horizontal: "center" as const,
-    };
 
     return (
         <Box
@@ -69,6 +62,7 @@ const ContactUsPopover = ({
                 anchorOrigin={anchorOriginVerticalCenterHorizontalBottom}
                 transformOrigin={transformOriginVerticalCenterHorizontalTop}
                 sx={contactUsPopoverContainerStyles}
+                disableScrollLock
             >
                 <Typography
                     data-testid="contact-us-form-owner-name"
